@@ -4,7 +4,7 @@
     <section class="display" >
       <div v-for="product in this.products" :key="product.id">
         <p>
-          <img :src="require('@/assets/images/' + product.image)" alt="product image" />
+          <img :src="'http://localhost:3000/images/' + product.image" alt="product image" />
         </p>
         <p>{{product.name}}</p>
         <p>{{product.weight}} {{product.unit}}</p>
