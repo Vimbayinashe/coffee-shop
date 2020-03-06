@@ -1,7 +1,10 @@
 <template>
   <div class="products">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <allProducts title="All products"/>
+     
+      <p v-if="$route.params.category===undefined">Here we will display our meny.</p> 
+    
+    <allProducts v-else-if="$route.params.category==='all'" title="All products" />
   </div>
 </template>
 
