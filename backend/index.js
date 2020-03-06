@@ -13,10 +13,12 @@ sqlite.open('productList.sqlite').then(database_ => {
   allProducts = database_
 })
 
-app.get('/products', (request, response) => {
-  allProducts.all('SELECT * FROM products').then((products) => {
+app.get('/products/:category', (request, response) => {
+  if(request.params.category=='all'){
+     allProducts.all('SELECT * FROM products').then((products) => {
       response.send(products)
       })
+  }
     })
 
 

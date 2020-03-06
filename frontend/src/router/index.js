@@ -11,19 +11,19 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  
   {
     path: '/control-panel',
     name: 'ControlPanel',
     component: ControlPanel
   },
-  {
-    path: '/products',
+  
+  { 
+    path: '/products/:category?', //question mark makes the parameter optional
     name: 'Products',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Products.vue')
   },
+  
   {
     path: '/about',
     name: 'About',

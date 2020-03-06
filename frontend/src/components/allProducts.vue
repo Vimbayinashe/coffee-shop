@@ -16,7 +16,7 @@
 <script>
 export default {
   created() {
-    fetch("http://localhost:3000/products")
+    fetch(`http://localhost:3000/products/all`)
       .then(response => response.json())
       .then(result => {
         this.products = result;
