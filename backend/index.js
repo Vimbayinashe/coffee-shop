@@ -4,6 +4,7 @@ const sqlite = require('sqlite')
 const app = express()
 const cors = require('cors') 
 app.use(cors())
+app.use('/images', express.static('images'))
 // app.use(express.json())
 
 let allProducts
