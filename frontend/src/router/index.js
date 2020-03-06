@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import ControlPanel from '../components/ControlPanel.vue'
 
 Vue.use(VueRouter)
 
@@ -10,7 +11,14 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  
   {
+    path: '/control-panel',
+    name: 'ControlPanel',
+    component: ControlPanel
+  },
+  
+  { 
     path: '/products/:category?', //question mark makes the parameter optional
     name: 'Products',
     component: () => import(/* webpackChunkName: "about" */ '../views/Products.vue')
