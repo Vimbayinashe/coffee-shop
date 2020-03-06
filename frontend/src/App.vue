@@ -5,6 +5,8 @@
       <router-link to="/products">All products</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+
+    <router-link to="/control-panel">Control Panel</router-link>
     <router-view/>
   </div>
 </template>
