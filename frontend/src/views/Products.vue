@@ -1,6 +1,7 @@
 <template>
   <div class="products">
-    <section v-if="$route.params.category===undefined">
+    <!-- <section v-if="$route.params.category===undefined"> -->
+    <section>
       Here we will display our meny.
       <p>
         <router-link to="/products/all">All products</router-link>
