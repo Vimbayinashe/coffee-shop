@@ -3,10 +3,22 @@
    
     <section v-if="$route.params.category===undefined">
       <p>
-        <router-link to="/products/all">All products</router-link>
+        <router-link to="/products/All">All products</router-link>
       </p>
       <p>
-        <router-link to="/products/coffee">Coffee products</router-link>
+        <router-link to="/products/Coffee">Coffee brew and beans</router-link>
+      </p>
+      <p>
+        <router-link to="/products/Milk">Milk and cream</router-link>
+      </p>
+      <p>
+        <router-link to="/products/Sugar">Sugar and spices</router-link>
+      </p>
+      <p>
+        <router-link to="/products/Syrup">Syrups</router-link>
+      </p>
+      <p>
+        <router-link to="/products/Alcoholic">Alcoholic</router-link>
       </p>
         <router-view />
     </section>

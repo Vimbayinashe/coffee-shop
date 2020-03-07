@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <h1>{{ title }} products</h1>
     <section class="display" >
       <div v-for="product in this.products" :key="product.id">
         <p>
@@ -22,20 +22,14 @@ export default {
         this.products = result;
       })
   },
- 
-//  updated: function () {
-//    this.fetchProducts();
-// //   this.$nextTick(function () {
-// //    
-// //  })
-// },
 
   data() {
     return {
+      title: this.$route.params.category, 
       products: null
     }
   },
-  
+
   name: "productDisplay"
 };
 </script>

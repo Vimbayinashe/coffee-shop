@@ -26,28 +26,30 @@ app.get('/products/:category', (request, response) => {
   let whereClause;
   
   switch (request.params.category) {
-    case 'all':
+    case 'All':
       whereClause = ' ';
       break;
-    case 'coffee':
+    case 'Coffee':
       whereClause = " WHERE type='coffee' OR type='instant coffee' OR type='espresso' ";
+      break;
+    case 'Milk':
+      whereClause = " WHERE type='milk' OR type='cream' "
+      break;
+    case 'Sugar':
+      whereClause = " WHERE type='sugar' OR type='spice' "
+      break;
+    case 'Syrup':
+      whereClause = " WHERE type='syrup' "
+      break;
+    case 'Alcoholic':
+      whereClause = " WHERE type='alcoholic' "
       break;
   }
 
   allProducts.all('SELECT * FROM products' + whereClause).then((products) => {
     response.send(products)
   })
-  // if (request.params.category == 'all') {
-  //   allProducts.all('SELECT * FROM products').then((products) => {
-  //     response.send(products)
-  //   })
-  // }
-  // else if(request.params.category == 'coffee'){
-  //   allProducts.all('SELECT * FROM products WHERE type="coffee" OR type="instant coffee" OR type="espresso"')
-  //   .then((products) => {
-  //     response.send(products)
-  //   })
-  // }
+  
 })
 
 
