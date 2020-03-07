@@ -1,8 +1,7 @@
 <template>
   <div class="products">
     <!-- <section v-if="$route.params.category===undefined"> -->
-    <section>
-      Here we will display our meny.
+    <section v-if="$route.params.category===undefined">
       <p>
         <router-link to="/products/all">All products</router-link>
       </p>
@@ -14,7 +13,7 @@
 
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
 
-    <productDisplay title="products"/>
+    <productDisplay v-else-if="$route.params.category!==undefined" title="Products"/>
     <!-- v-if="$route.params.category==='all'" -->
     <!-- <coffeeProducts v-else-if="$route.params.category==='coffee'" title="Coffee products" /> -->
   </div>

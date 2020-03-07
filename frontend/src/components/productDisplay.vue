@@ -16,18 +16,24 @@
 <script>
 export default {
   created() {
-    fetch(`http://localhost:3000/products/${this.$route.params.category}`)
+      fetch(`http://localhost:3000/products/${this.$route.params.category}`)
       .then(response => response.json())
       .then(result => {
-        this.products = null;
         this.products = result;
-        console.log(result);
-      });
+      })
   },
+ 
+//  updated: function () {
+//    this.fetchProducts();
+// //   this.$nextTick(function () {
+// //    
+// //  })
+// },
+
   data() {
     return {
       products: null
-    };
+    }
   },
   props: {
     title: String
