@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ title }} products</h1>
+    <h1>{{ title }} products</h1> <!-- Title should be like how we have the links on Figma -->
     <section class="display" >
       <div v-for="product in this.products" :key="product.id">
         <p>

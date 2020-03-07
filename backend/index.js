@@ -35,7 +35,7 @@ app.get('/products/:category', (request, response) => {
     case 'Milk':
       whereClause = " WHERE type='milk' OR type='cream' "
       break;
-    case 'Sugar':
+    case 'Spices':
       whereClause = " WHERE type='sugar' OR type='spice' "
       break;
     case 'Syrup':
