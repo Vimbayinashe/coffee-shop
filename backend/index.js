@@ -20,12 +20,34 @@ app.get('/products', (request, response) => {
   })
 })
 
+
 app.get('/products/:category', (request, response) => {
-  if (request.params.category == 'all') {
-    allProducts.all('SELECT * FROM products').then((products) => {
-      response.send(products)
-    })
+
+  let whereClause;
+  
+  switch (request.params.category) {
+    case 'all':
+      whereClause = ' ';
+      break;
+    case 'coffee':
+      whereClause = " WHERE type='coffee' OR type='instant coffee' OR type='espresso' ";
+      break;
   }
+
+  allProducts.all('SELECT * FROM products' + whereClause).then((products) => {
+    response.send(products)
+  })
+  // if (request.params.category == 'all') {
+  //   allProducts.all('SELECT * FROM products').then((products) => {
+  //     response.send(products)
+  //   })
+  // }
+  // else if(request.params.category == 'coffee'){
+  //   allProducts.all('SELECT * FROM products WHERE type="coffee" OR type="instant coffee" OR type="espresso"')
+  //   .then((products) => {
+  //     response.send(products)
+  //   })
+  // }
 })
 
 

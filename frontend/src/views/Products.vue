@@ -5,24 +5,31 @@
       Here we will display our meny.
       <p>
         <router-link to="/products/all">All products</router-link>
-        <router-view />
       </p>
+      <p>
+        <router-link to="/products/coffee">Coffee products</router-link>
+      </p>
+        <router-view />
     </section>
 
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
 
-    <allProducts v-if="$route.params.category==='all'" title="All products" />
+    <productDisplay title="products"/>
+    <!-- v-if="$route.params.category==='all'" -->
+    <!-- <coffeeProducts v-else-if="$route.params.category==='coffee'" title="Coffee products" /> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import allProducts from "@/components/allProducts.vue";
+import productDisplay from "@/components/productDisplay.vue";
+// import coffeeProducts from "@/components/coffeeProducts.vue";
 
 export default {
   name: "Products",
   components: {
-    allProducts
+    productDisplay
+    // coffeeProducts
   }
 };
 </script>

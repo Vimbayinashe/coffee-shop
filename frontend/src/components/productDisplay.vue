@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div>
     <h1>{{ title }}</h1>
     <section class="display" >
       <div v-for="product in this.products" :key="product.id">
@@ -16,9 +16,10 @@
 <script>
 export default {
   created() {
-    fetch(`http://localhost:3000/products/all`)
+    fetch(`http://localhost:3000/products/${this.$route.params.category}`)
       .then(response => response.json())
       .then(result => {
+        this.products = null;
         this.products = result;
         console.log(result);
       });
@@ -31,7 +32,7 @@ export default {
   props: {
     title: String
   },
-  name: "allProducts"
+  name: "productDisplay"
 };
 </script>
 
