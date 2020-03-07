@@ -35,9 +35,7 @@ export default {
       products: null
     }
   },
-  props: {
-    title: String
-  },
+  
   name: "productDisplay"
 };
 </script>
