@@ -13,7 +13,7 @@ const routes = [
   },
   
   {
-    path: '/control-panel',
+    path: '/control-panel/',
     name: 'ControlPanel',
     component: ControlPanel
   },
