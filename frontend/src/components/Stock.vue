@@ -2,9 +2,15 @@
   <div>
 
     <div id="stock-nav">
-      <h3 @click="toggle=!toggle">Categories</h3>
-      <h3 @click="toggle=!toggle">All Products</h3>
+      <h3 class="h3-dark" @click="toggle=!toggle">
+        <!--if class "h3-dark" works then :class="{ dark: toggle }" -->
+        Categories
+      </h3>
+      <h3 @click="toggle=!toggle">
+        All Products
+      </h3>
     </div>
+
     {{toggle}}
     <div id="stock-item" v-show="toggle">
       <!-- <div @click="showProduct($event)"> -->
@@ -37,20 +43,20 @@
       </div>
 
       <div @click ='sugar= !sugar'>
-        <div v-show='sugar'>
+        <div>
           Sugar and Spices
         </div>
-        <div class="indiv-products">
-          {{ $route.params.product }}
+        <div class="indiv-products" v-show='sugar'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officiis itaque dignissimos eaque necessitatibus molestiae consequatur quaerat expedita corrupti tempore eius, doloribus et iste ad ea, sint provident tempora deserunt.
         </div>
       </div>
 
       <div @click ='syrup= !syrup'>
-        <div v-show='syrup'>
+        <div>
           Syrups
         </div>
-        <div class="indiv-products">
-          {{ $route.params.product }}
+        <div class="indiv-products" v-show='syrup'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid amet ab odit. Molestias vel id repellat cumque sint eum eaque, deserunt minus enim aperiam libero explicabo porro ratione, provident sed?
         </div>
       </div>
 
@@ -93,6 +99,11 @@
 <script>
 
 export default {
+  computed: {
+    setClass(toggle) {
+      return this.toggle? h3-dark : nothing
+    }
+  },
   created() {
     fetch("http://localhost:3000/products")
       .then(response => response.json())
@@ -124,3 +135,63 @@ export default {
   name: "Stock"
 };
 </script>
+
+<style scoped>
+
+#stock-nav {
+  background: rgba(12, 105, 192, 0.322);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3em;
+  margin: 2em 20vw;
+  width: 40em;
+}
+
+#stock-nav>h3-dark {
+  background-color: rgb(12, 120, 192);
+}
+
+h3 {
+  font-size: 150%;
+  width: 15em;
+}
+
+/* Table Style */
+
+table {
+  border: 0.2em solid darkblue;
+  margin: 3vw 10vw;
+}
+th, tr{
+  margin: 2em;
+  padding: 1em;
+}
+
+tr {
+  margin: 1em;
+  text-align: left;
+  padding: 1em 0.5em;
+}
+
+td {
+  /* margin: 1em; */
+  text-align: left;
+  padding: 1em 0.5em;
+}
+
+th, td {
+  border-bottom: 0.1em solid darkblue;
+}
+
+tr:hover {
+  background-color: lightcyan;
+}
+
+/* td img {
+  height : 50px;
+  width : auto
+} */
+
+</style>
