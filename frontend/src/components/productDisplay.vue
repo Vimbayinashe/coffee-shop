@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ title }} products</h1>
-    <!-- Title should be like how we have the links on Figma -->
+
     <section class="display">
       <div v-for="product in this.products" :key="product.id" :id="product.id">
         <p>
@@ -30,8 +30,7 @@ export default {
   data() {
     return {
       title: this.$route.params.category,
-      products: null,
-      myBasket: []
+      products: null
     };
   },
 
@@ -40,8 +39,8 @@ export default {
       let targetProduct = this.products.filter(
         product => product.id === target
       );
-      this.myBasket.push(targetProduct[0]);
-      console.log(this.myBasket);
+      this.$store.state.myBasket.push(targetProduct[0]);
+      console.log(this.$store.state.myBasket);
     },
 
     removeOne(target) {
@@ -49,8 +48,8 @@ export default {
         product => product.id === target
       );
       console.log(targetProduct[0]);
-      this.myBasket.splice(this.myBasket.indexOf(targetProduct[0]), 1);
-      console.log(this.myBasket);
+      this.$store.state.myBasket.splice(this.$store.state.myBasket.indexOf(targetProduct[0]), 1);
+      console.log(this.$store.state.myBasket);
     }
   },
   name: "productDisplay",
