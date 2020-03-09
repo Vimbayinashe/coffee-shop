@@ -8,6 +8,7 @@ app.use('/images', express.static('images'))
 // app.use(express.json())
 
 let allProducts
+let orders
 
 sqlite.open('productList.sqlite').then(database_ => {
   allProducts = database_
@@ -50,6 +51,20 @@ app.get('/products/:category', (request, response) => {
     response.send(products)
   })
   
+})
+
+
+/** Orders Database */
+
+sqlite.open('orders.sqlite').then(database => {
+  orders = database
+})
+
+app.get('/orders', (request, response) => {
+  orders.all('SELECT * FROM orders').then((orders) => {
+    response.send(orders)
+    // response.send("It works")
+  })
 })
 
 
