@@ -6,19 +6,61 @@
         <p>
           <img :src="'http://localhost:3000/images/' + product.image" alt="product image" />
         </p>
+        <p>{{product.id}}</p>
         <p>{{product.name}}</p>
         <p>{{product.weight}} {{product.unit}}</p>
         <p>{{product.price}} kr</p>
         <p> Amount in basket: {{product.productQuantity}}</p>
      </div>
     </section>
-    <input type="submit" value="Checkout" id="checkout"> <!-- Here we will have an @click function to POST product id 
+
+    <div v-if="!buttonText">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required v-model="name">
+      <label for="address">Shipping Address:</label>
+      <textarea 
+        type="text" 
+        id="address" 
+        name="address" 
+        required rows="4" 
+        cols="30"
+        v-model="address"
+      >
+      </textarea>
+    <!-- input attributes: required ?  
+        <textarea> could be upgraded to separate input for UX-->
+
+
+      <div>
+        Confirm Your Personal Details
+        <div>Name: {{ name }} </div>
+        <div>
+          <div>Address:</div>
+          <div id="confirm-address"> {{ address }} </div>
+        </div>
+      </div>
+    </div>
+    
+    <button type="submit" id="checkout"  @click="buttonText=!buttonText">
+      <p v-if="buttonText">Confirm</p>
+      <p v-else>Submit</p>
+    </button>
+    <!-- <input type="submit" value="Checkout" id="checkout">  -->
+    <!-- Here we will have an @click function to POST product id 
     and quantity to the orders database-->
+
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      name: null,
+      address: null,
+      buttonText: true
+    }
+  },
   name: 'Basket'
 }
 </script>
@@ -45,4 +87,9 @@ export default {
   margin: 1em;
   right: 20px;
 }
+
+#confirm-address {
+  white-space: pre;
+}
+
 </style>
