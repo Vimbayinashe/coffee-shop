@@ -41,11 +41,21 @@
       </div>
     </div>
     
-    <button type="submit" id="checkout"  @click="buttonText=!buttonText">
-      <p v-if="buttonText">Confirm</p>
-      <p v-else>Submit</p>
+    <input 
+      class="checkout" 
+      type="button" 
+      value="Confirm" 
+      @click="buttonText=!buttonText"
+      v-if="basket.length > 0 && buttonText"
+    > 
+    <button 
+      class="checkout"
+      type="submit" 
+      @click=" submitOrder()" 
+      v-if="!buttonText"
+    >
+      Submit
     </button>
-    <!-- <input type="submit" value="Checkout" id="checkout">  -->
     <!-- Here we will have an @click function to POST product id 
     and quantity to the orders database-->
 
@@ -58,7 +68,15 @@ export default {
     return {
       name: null,
       address: null,
+      basket: this.$store.state.myBasket,
       buttonText: true
+    }
+  },
+  methods: {
+    submitOrder() {
+     console.log("Sent!");
+      
+      this.buttonText = true
     }
   },
   name: 'Basket'
@@ -80,7 +98,7 @@ export default {
   height: 110px;
 }
 
-#checkout{
+.checkout{
   position: absolute;
   font-size: 1em;
   padding: 0.8em;
