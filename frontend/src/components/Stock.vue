@@ -11,7 +11,6 @@
       </h3>
     </div>
 
-    {{viewAll}}
     <div id="stock-item" v-show="viewAll">
         
       <div>
@@ -57,7 +56,7 @@
       <div @click ='toggle(syrupOn) ; setProduct("syrup"); syrupOn = true'>
         <!-- find solution to compute syrupOn = true in 'toggle()' -->
         <div>
-          Syrups  {{ syrupOn }}
+          Syrups
         </div>
         <div class="indiv-products" v-show='syrupOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>

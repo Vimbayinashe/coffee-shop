@@ -5,9 +5,13 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 app.use('/images', express.static('images'))
-// app.use(express.json())
+app.use(express.json())
 
 let allProducts
+let orders
+
+
+/** Products Database */
 
 sqlite.open('productList.sqlite').then(database_ => {
   allProducts = database_
@@ -50,6 +54,36 @@ app.get('/products/:category', (request, response) => {
     response.send(products)
   })
   
+})
+
+
+/** Orders Database */
+
+sqlite.open('orders.sqlite').then(database => {
+  orders = database
+})
+
+app.get('/orders', (request, response) => {
+  orders.all('SELECT * FROM orders').then((orders) => {
+    response.send(orders)
+    console.log("GET request succeeded")
+  })
+})
+
+app.post('/orders', (request,response) => {
+  // response.status(418)
+  console.log(request.body);
+  orders.run(
+      'INSERT INTO orders VALUES (?, ?, ?, ?, ?)',
+      [
+        request.body.name, 
+        request.body.address, 
+        request.body.productId, 
+        request.body.quantity, 
+        "false"
+      ]
+  )
+  response.send(request.body)
 })
 
 
