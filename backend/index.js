@@ -5,7 +5,7 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 app.use('/images', express.static('images'))
-// app.use(express.json())
+app.use(express.json())
 
 let allProducts
 let orders
@@ -65,6 +65,22 @@ app.get('/orders', (request, response) => {
     response.send(orders)
     // response.send("It works")
   })
+})
+
+app.post('/orders', (request,response) => {
+  // response.status(418)
+  console.log(request.body);
+  orders.run(
+      'INSERT INTO orders VALUES (?, ?, ?, ?, ?)',
+      [
+        request.body.name, 
+        request.body.address, 
+        request.body.productId, 
+        request.body.quantity, 
+        "false"
+      ]
+  )
+  response.send(request.body)
 })
 
 
