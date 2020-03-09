@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ControlPanel from '../components/ControlPanel.vue'
+import Basket from '../components/Basket.vue'
 
 Vue.use(VueRouter)
 
