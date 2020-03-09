@@ -18,13 +18,13 @@ export default {
   methods: {
     add() {
       this.quantity = this.quantity +1
-      this.$emit("addOne");
+      this.$emit("addOne", this.quantity);
     },
     remove() {
       if(this.quantity > 0){
         this.quantity = this.quantity -1
       }
-      this.$emit("removeOne");
+      this.$emit("removeOne", this.quantity);
     }
   },
 
