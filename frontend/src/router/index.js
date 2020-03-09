@@ -18,6 +18,12 @@ const routes = [
     component: ControlPanel
   },
   
+  {
+    path:'/basket',
+    name:'Basket',
+    component: Basket
+  },
+
   { 
     path: '/products/:category?', //question mark makes the parameter optional
     name: 'Products',

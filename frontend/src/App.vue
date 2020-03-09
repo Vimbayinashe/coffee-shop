@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/products/">Browse products</router-link> |  
+      <router-link to="/">Home</router-link>|
+      <router-link to="/products/">Browse products</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-
+    <router-link to="/basket">
+      <input type="button" value="My basket" />
+    </router-link>
     <router-link to="/control-panel">Control Panel</router-link>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
