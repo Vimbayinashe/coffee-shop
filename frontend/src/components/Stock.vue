@@ -15,9 +15,9 @@
         
       <div>
         <div 
-          @click ='toggle(alcoholOn); 
+          @click ='toggle(alcoholOn)
           setProduct("alcoholic"); 
-          alcoholOn=true'
+          alcoholOn = !alcoholOn'
         >
           Alchoholic Products
         </div>
@@ -104,7 +104,8 @@ export default {
       syrupOn: false,
       viewAll: true,
       allCoffee:null,
-      viewProducts: null
+      viewProducts: null,
+      alcoholic: null
     };
   },
   methods: {
@@ -114,6 +115,9 @@ export default {
       )
     },
     setProduct (type) {
+      // type = this.products.filter(
+      //   product => product.type ===type
+      // )
       this.viewProducts = this.products.filter(
         product => product.type ===type
       )
