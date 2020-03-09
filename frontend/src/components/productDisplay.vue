@@ -10,7 +10,11 @@
         <p>{{product.name}}</p>
         <p>{{product.weight}} {{product.unit}}</p>
         <p>{{product.price}} kr</p>
-        <quantityButton @addOne="addOne(product.id)" @removeOne="removeOne(product.id)" :myQuantity=0 />
+        <quantityButton
+          @addOne="addOne(product.id, ...arguments)"
+          @removeOne="removeOne(product.id, ...arguments)"
+          :myQuantity="0"
+        />
       </div>
     </section>
   </div>
@@ -35,20 +39,37 @@ export default {
   },
 
   methods: {
-    addOne(target) {
+  
+    addOne(target, quantity) {
+
       let targetProduct = this.products.filter(
         product => product.id === target
       );
-      this.$store.state.myBasket.push(targetProduct[0]);
+      targetProduct[0].productQuantity = quantity;
+      let present = this.$store.state.myBasket.find(
+        item => item.name === targetProduct[0].name
+      );
+      if (present === undefined) {
+        this.$store.state.myBasket.push(targetProduct[0]);
+      }
       console.log(this.$store.state.myBasket);
     },
 
-    removeOne(target) {
+    removeOne(target, quantity) {
+      
       let targetProduct = this.products.filter(
         product => product.id === target
       );
-      console.log(targetProduct[0]);
-      this.$store.state.myBasket.splice(this.$store.state.myBasket.indexOf(targetProduct[0]), 1);
+      targetProduct[0].productQuantity = quantity;
+      let present = this.$store.state.myBasket.find(
+        item => item.name === targetProduct[0].name
+      );
+      if (present !== undefined && quantity==0) {
+        this.$store.state.myBasket.splice(
+        this.$store.state.myBasket.indexOf(targetProduct[0]),
+        1
+      );
+      }
       console.log(this.$store.state.myBasket);
     }
   },
