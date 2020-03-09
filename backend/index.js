@@ -10,6 +10,9 @@ app.use(express.json())
 let allProducts
 let orders
 
+
+/** Products Database */
+
 sqlite.open('productList.sqlite').then(database_ => {
   allProducts = database_
 })
@@ -63,7 +66,7 @@ sqlite.open('orders.sqlite').then(database => {
 app.get('/orders', (request, response) => {
   orders.all('SELECT * FROM orders').then((orders) => {
     response.send(orders)
-    // response.send("It works")
+    console.log("GET request succeeded")
   })
 })
 
