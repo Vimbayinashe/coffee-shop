@@ -6,8 +6,8 @@
         <p>
           <img :src="'http://localhost:3000/images/' + product.image" alt="product image" />
         </p>
-        <p>{{product.id}}</p>
         <p>{{product.name}}</p>
+        <p>{{product.type}}</p>
         <p>{{product.weight}} {{product.unit}}</p>
         <p>{{product.price}} kr</p>
         <p> Amount in basket: {{product.productQuantity}}</p>
@@ -56,8 +56,6 @@
     >
       Submit
     </button>
-    <!-- Here we will have an @click function to POST product id 
-    and quantity to the orders database-->
 
   </div>
 </template>
