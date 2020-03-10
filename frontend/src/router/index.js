@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ControlPanel from '../components/ControlPanel.vue'
+import Basket from '../components/Basket.vue'
+import OneProduct from '../components/OneProduct.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +24,12 @@ const routes = [
     path:'/basket',
     name:'Basket',
     component: Basket
+  },
+  
+  {
+    path: '/control-panel/products/:id',
+    name:'OneProduct',
+    component: OneProduct
   },
 
   { 

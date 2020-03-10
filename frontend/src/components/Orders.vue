@@ -1,5 +1,5 @@
 <template>
-  <div v-if="orders">
+  <div v-if="orders && products">
   <!-- <div v-if="orders"> -->
        <table>
             <thead>

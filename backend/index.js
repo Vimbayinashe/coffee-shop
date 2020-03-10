@@ -83,8 +83,28 @@ app.post('/orders', (request,response) => {
         "false"
       ]
   )
+  console.log('POST Successful!');
+  
   response.send(request.body)
 })
 
+// / GET where population >= query parameter
+
+// app.get('/', (request, response) => {
+//   if (request.query.minPopulation) {
+//     database.all(
+//       'SELECT * FROM cities WHERE population >= ?', 
+//       [request.query.minPopulation]
+//     )
+//     .then(cities => {
+//       response.send(cities)   //send cities (json output) via express 
+//     })
+//   } else { 
+//     database.all('SELECT * FROM cities')
+//     .then(cities => {
+//       response.send(cities)    
+//     })
+//   }
+// })
 
 app.listen(3000)
