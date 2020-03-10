@@ -74,7 +74,39 @@ export default {
   },
   methods: {
     submitOrder() {
-     console.log("Sent!");
+    //  console.log("Sent!");
+
+      this.basket.forEach(product => {
+        console.log(
+          {
+            name: this.name,
+            address: this.address,
+            productId: product.id,
+            quantity: product.productQuantity
+          }
+        );
+        
+        fetch('http://localhost:3000/orders', {
+          body: JSON.stringify({
+            name: this.name,
+            address: this.address,
+            productId: product.id,
+            quantity: product.productQuantity
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        })
+        .then(response => response.json())
+        .then(result => {
+          console.log("Sent!")
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+      });
       
       this.buttonText = true
     }

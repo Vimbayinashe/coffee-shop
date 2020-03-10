@@ -83,6 +83,8 @@ app.post('/orders', (request,response) => {
         "false"
       ]
   )
+  console.log('POST Successful!');
+  
   response.send(request.body)
 })
 
