@@ -74,18 +74,8 @@ export default {
   },
   methods: {
     submitOrder() {
-    //  console.log("Sent!");
 
       this.basket.forEach(product => {
-        console.log(
-          {
-            name: this.name,
-            address: this.address,
-            productId: product.id,
-            quantity: product.productQuantity
-          }
-        );
-        
         fetch('http://localhost:3000/orders', {
           body: JSON.stringify({
             name: this.name,

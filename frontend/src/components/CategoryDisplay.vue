@@ -17,7 +17,11 @@
             <tr :key="product.id" v-for="product in products">
               <td> {{ products.indexOf(product) + 1 }}. </td>
               <td>
-                  {{ product.name }}
+                  <router-link 
+                    :to="'/control-panel/products/'+product.id"
+                  >
+                    {{ product.name }}
+                  </router-link>
               </td>
               <td>{{ product.brand }}</td>
               <td>{{ product.type }}</td>
