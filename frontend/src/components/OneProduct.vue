@@ -30,14 +30,10 @@
       </tr>
       </tbody>
     </table>
-    <button id="back-button">
-      <router-link to="/control-panel/">
-        Back
-      </router-link>
-    </button>
-    <button id="edit-button">Edit</button>
+    
+    <button id="edit-button" @click="toggle=true">Edit</button>
 
-    <div>
+    <div v-if="toggle">
       <div id="new-details">
         <label for="price">Price:</label>
         <input type="number" name="price" step="0.01" v-model="price">
@@ -59,7 +55,18 @@
           <div>Quantity: {{quantity}} </div>
         </div>
       </div>
+
+      <p class="message"> {{ errorMessage }} </p>
+      <button @click="toggle = false">Cancel</button>
+      <button @click="updateProduct()">Save changes</button>
+
     </div>
+    <p> {{ successMessage }} </p> 
+    <button id="back-button">
+      <router-link to="/control-panel/">
+        Back
+      </router-link>
+    </button>
   </div>
 </template>
 
@@ -77,14 +84,29 @@ export default {
   },
   data () {
     return {
+      errorMessage: null,
       price: 0,
       products: null,
-      quantity: 0
+      quantity: 0,
+      successMessage: null,
+      toggle: false
     }
   },
   methods: {
-    getIndex () {
-      this.index = this.products.findIndex(product => product.id === this.$route.params.id)
+    updateProduct () {
+      if (this.price==0 && this.quantity==0) {
+        this.errorMessage = "Please enter valid changes to price or quantity"
+
+      } else {
+
+        this.errorMessage = null
+        this.price = 0
+        this.quantity = 0
+        this.successMessage = this.products[this.$route.params.id].name + " successfully updated"
+        this.toggle = false;
+
+        setTimeout(()=>{ this.successMessage=null; }, 3000);
+      }
     },
   },
   name: "OneProduct"
@@ -114,13 +136,18 @@ export default {
 #confirm-new {
   background-color: lightcyan;
 }
-/* #old-details {
-  color: rgb(100, 95, 95);
-  /* font-size: 90%; */
-  /* font-style: italic; */
-/* } */ 
 
 p {
   margin: 0 2em 0 0.5em;
+}
+
+.message {
+  color: red;
+  margin: 2em;
+}
+
+#back-button {
+  margin: 2em;
+  /** needs position styling - it moves about too much */
 }
 </style>
