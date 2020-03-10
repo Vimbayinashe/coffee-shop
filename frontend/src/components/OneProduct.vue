@@ -1,8 +1,8 @@
 <template>
   <div v-if="products">
-    {{ $route.params.id}}
-    <h3> {{ products[$route.params.id].name}} </h3>
-
+    {{ $route.params.id}} vs {{ products[index].id}}
+    <h3> {{ products[index].name}} </h3>
+  
     <table>
       <thead>
         <tr>
@@ -17,15 +17,15 @@
 
       <tbody>
       <tr>
-        <td>{{ products[$route.params.id].name }}</td>
-        <td>{{ products[$route.params.id].brand }}</td>
-        <td>{{ products[$route.params.id].type }}</td>
+        <td>{{ products[index].name }}</td>
+        <td>{{ products[index].brand }}</td>
+        <td>{{ products[index].type }}</td>
         <td>
-          {{ products[$route.params.id].weight }} 
-          {{ products[$route.params.id].unit }} 
+          {{ products[index].weight }} 
+          {{ products[index].unit }} 
         </td>
-        <td>{{ products[$route.params.id].price }}</td>
-        <td>{{ products[$route.params.id].quantity }}</td>
+        <td>{{ products[index].price }}</td>
+        <td>{{ products[index].quantity }}</td>
         <!-- <td>Edit</td> -->
       </tr>
       </tbody>
@@ -45,9 +45,9 @@
       <p>Confirm product details</p>
       <div id="confirm-details">
         <div id="old-details" class="details">
-          <p>Old Details:</p>
-          <div>Price: {{ products[$route.params.id].price }} </div>
-          <div>Quantity {{ products[$route.params.id].quantity }} </div>
+          <p>Old Details:</p> @ index {{ products[index].id }}
+          <div>Price: {{ products[index].price }} </div>
+          <div>Quantity {{ products[index].quantity }} </div>
         </div>
         <div id="confirm-new" class="details">
           <p>New Details:</p>
@@ -80,11 +80,13 @@ export default {
       .then(result => {
         this.products = result;
         console.log(result);
+        this.setIndex();
       });
   },
   data () {
     return {
       errorMessage: null,
+      index: null,
       price: 0,
       products: null,
       quantity: 0,
@@ -93,21 +95,55 @@ export default {
     }
   },
   methods: {
+    setIndex () {
+      this.index = this.$route.params.id - 1
+    },
     updateProduct () {
-      if (this.price==0 && this.quantity==0) {
+      if (this.price<=0 && this.quantity<=0) {
         this.errorMessage = "Please enter valid changes to price or quantity"
 
       } else {
+        /** ACTUAL DATA SET */
+        console.log(JSON.stringify({
+          price: parseInt(this.price),
+          quantity: parseInt(this.quantity)
+        }));
 
-        this.errorMessage = null
-        this.price = 0
-        this.quantity = 0
-        this.successMessage = this.products[this.$route.params.id].name + " successfully updated"
-        this.toggle = false;
+        fetch(
+          'http://localhost:3000//control-panel/products/' 
+          + this.$route.params.id, {
+          body: '{"price": 10, "quantity": 10}',
+          // body: JSON.stringify({price: 10, quantity: 10}),
+
+          //Try parseInt() 
+          //  body: JSON.stringify({                
+          //         price: parseInt(this.price),
+          //         quantity: parseInt(this.quantity)
+          //       }),
+          
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'PUT'
+        })
+        .then(response => response.json())
+        .then(result => {
+          console.log("UPDATE successful!")
+        })
+        .then(
+          this.errorMessage = null,
+          this.price = 0,
+          this.quantity = 0,
+          this.successMessage = this.products[this.$route.params.id].name + " successfully updated",
+          this.toggle = false
+        )
+        .catch((error) => {
+          console.error('Error:', error);
+        });       
 
         setTimeout(()=>{ this.successMessage=null; }, 3000);
       }
-    },
+    }
   },
   name: "OneProduct"
 };

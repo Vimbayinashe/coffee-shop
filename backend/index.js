@@ -28,7 +28,7 @@ app.get('/products', (request, response) => {
 app.get('/products/:category', (request, response) => {
 
   let whereClause;
-  
+
   switch (request.params.category) {
     case 'All':
       whereClause = ' ';
@@ -53,6 +53,31 @@ app.get('/products/:category', (request, response) => {
   allProducts.all('SELECT * FROM products' + whereClause).then((products) => {
     response.send(products)
   })
+
+})
+
+app.put('/control-panel/products/:id', (request, response) => {
+
+  if (request.body.price == 0) {
+    allProducts.run(
+      'UPDATE products SET quantity=? WHERE id=?',
+      [ request.body.quantity, request.params.id ]
+    )
+  } else if (request.body.quantity == 0) {
+    allProducts.run(
+      'UPDATE products SET price=? WHERE id=?',
+      [ request.body.price, request.params.id ]
+    )
+  } else {  
+    allProducts.run(
+      'UPDATE products SET price=?, quantity=? WHERE id=?',
+      [ request.body.price, request.body.quantity, request.params.id ]
+    )
+  }
+
+  console.log("UPDATE successful");
+  response.status(200)
+  response.send(request.body)
   
 })
 
@@ -70,41 +95,22 @@ app.get('/orders', (request, response) => {
   })
 })
 
-app.post('/orders', (request,response) => {
+app.post('/orders', (request, response) => {
   // response.status(418)
   console.log(request.body);
   orders.run(
-      'INSERT INTO orders VALUES (?, ?, ?, ?, ?)',
-      [
-        request.body.name, 
-        request.body.address, 
-        request.body.productId, 
-        request.body.quantity, 
-        "false"
-      ]
+    'INSERT INTO orders VALUES (?, ?, ?, ?, ?)',
+    [
+      request.body.name,
+      request.body.address,
+      request.body.productId,
+      request.body.quantity,
+      "false"
+    ]
   )
   console.log('POST Successful!');
-  
+
   response.send(request.body)
 })
-
-// / GET where population >= query parameter
-
-// app.get('/', (request, response) => {
-//   if (request.query.minPopulation) {
-//     database.all(
-//       'SELECT * FROM cities WHERE population >= ?', 
-//       [request.query.minPopulation]
-//     )
-//     .then(cities => {
-//       response.send(cities)   //send cities (json output) via express 
-//     })
-//   } else { 
-//     database.all('SELECT * FROM cities')
-//     .then(cities => {
-//       response.send(cities)    
-//     })
-//   }
-// })
 
 app.listen(3000)
