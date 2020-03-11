@@ -172,7 +172,8 @@ export default {
 }
 
 h3 {
-  font-size: 150%;
+  /* Undo below later: */
+  /* font-size: 150%; */
   width: 15em;
 }
 
