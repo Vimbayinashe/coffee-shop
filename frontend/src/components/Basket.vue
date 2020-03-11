@@ -22,11 +22,13 @@
         type="text" 
         id="address" 
         name="address" 
-        required rows="4" 
+        required 
+        rows="4" 
         cols="30"
         v-model="address"
       >
       </textarea>
+      <div> {{errorMessage}} </div>
     <!-- input attributes: required ?  
         <textarea> could be upgraded to separate input for UX-->
 
@@ -67,36 +69,45 @@ export default {
       name: null,
       address: null,
       basket: this.$store.state.myBasket,
-      buttonText: true
+      buttonText: true,
+      errorMessage: null
     }
   },
   methods: {
     submitOrder() {
+   
+      if (!this.name && !this.address) {
+        this.errorMessage = 'Please enter a valid name & address'
+      } else if (!this.name) {
+        this.errorMessage = 'Please enter a valid name'
+      } else if (!this.address) {
+        this.errorMessage='Please enter a valid adress'
+      } else if (this.name && this.address) {
+        this.basket.forEach(product => {
+          fetch('http://localhost:3000/orders', {
+            body: JSON.stringify({
+              name: this.name,
+              address: this.address,
+              productId: product.id,
+              quantity: product.productQuantity
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST'
+          })
+          .then(response => response.json())
+          .then(result => {
+            console.log("Sent!")
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
 
-      this.basket.forEach(product => {
-        fetch('http://localhost:3000/orders', {
-          body: JSON.stringify({
-            name: this.name,
-            address: this.address,
-            productId: product.id,
-            quantity: product.productQuantity
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        })
-        .then(response => response.json())
-        .then(result => {
-          console.log("Sent!")
-        })
-        .catch((error) => {
-          console.error('Error:', error);
         });
-
-      });
-      
-      this.buttonText = true
+        this.errorMessage = null
+        this.buttonText = true
+        }
     }
   },
   name: 'Basket'
