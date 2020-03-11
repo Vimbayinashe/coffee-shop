@@ -18,11 +18,11 @@ sqlite.open('productList.sqlite').then(database_ => {
 })
 
 
-// app.get('/products', (request, response) => {
-//   allProducts.all('SELECT * FROM products').then((products) => {
-//     response.send(products)
-//   })
-// })
+app.get('/products', (request, response) => {
+  allProducts.all('SELECT * FROM products').then((products) => {
+    response.send(products)
+  })
+})
 
 
 app.get('/products/:category', (request, response) => {
