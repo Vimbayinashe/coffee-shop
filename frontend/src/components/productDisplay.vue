@@ -27,6 +27,7 @@ export default {
     fetch(`http://localhost:3000/products/${this.$route.params.category}`)
       .then(response => response.json())
       .then(result => {
+        console.log(result)
         this.products = result;
       });
   },
