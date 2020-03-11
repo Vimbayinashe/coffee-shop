@@ -23,6 +23,7 @@
         </div>
         <div class="indiv-products" v-if="products" v-show='alcoholOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
+          <div class="close" @click="alcoholOn = false">close</div>
         </div>
       </div>
 
@@ -32,6 +33,7 @@
         </div>
         <div class="indiv-products" v-if="allCoffee" v-show='coffeeOn'>
           <CategoryDisplay :products="allCoffee"></CategoryDisplay>
+          <div class="close" @click="coffeeOn = false">close</div>
         </div>
       </div>
 
@@ -41,6 +43,7 @@
         </div>
         <div class="indiv-products" v-show='milkOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
+          <div class="close" @click="milkOn = false">close</div>
         </div>
       </div>
 
@@ -50,6 +53,7 @@
         </div>
         <div class="indiv-products" v-show='sugarOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
+          <div class="close" @click="sugarOn = false">close</div>
         </div>
       </div>
 
@@ -60,6 +64,7 @@
         </div>
         <div class="indiv-products" v-show='syrupOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
+          <div class="close" @click="syrupOn = false">close</div>
         </div>
       </div>
 
@@ -123,31 +128,24 @@ export default {
       )
     },
     toggle(type) {
-
-      // This works 
-      this.alcoholOn = false;
-      this.coffeeOn = false;
-      this.milkOn = false;
-      this.syrupOn = false;
-      this.sugarOn = false;
-
-      // This is NOT working
       
       let statuses = [
-        this.alcoholOn,
-        this.coffeeOn,
-        this.milkOn,
-        this.syrupOn,
-        this.sugarOn
+        this.alcoholOn = false,
+        this.coffeeOn = false,
+        this.milkOn = false,
+        this.syrupOn = false,
+        this.sugarOn = false
       ]
       
-      statuses.forEach( status => {
-          if (status = type) status = true
-        else status = false
-      })
+      // statuses.forEach( status => {
+      //     if (status = type) status = true
+      //   else status = false
+      // })
 
-      //console.log(type);
-      
+      statuses.find(status => {
+        if (status = type) status = true
+      })
+ 
     }
   },
   name: "Stock"
