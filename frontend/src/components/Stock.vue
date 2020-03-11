@@ -36,15 +36,15 @@
       </div>
 
       <div>
-        <div @click ='toggle(milkOn); setProduct("milk"); milkOn=true'>
-          Milk and Creams
+        <div @click ='toggle(milkOn); setProduct("sugar"); milkOn=true'>
+          Sugar
         </div>
         <div class="indiv-products" v-show='milkOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
         </div>
       </div>
 
-      <div @click ='toggle(sugarOn); setProduct("spices"); sugarOn=true'>
+      <div @click ='toggle(sugarOn); setProduct("spice"); sugarOn=true'>
         <div>
           Sugar and Spices
         </div>

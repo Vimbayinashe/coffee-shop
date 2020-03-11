@@ -34,9 +34,6 @@ export default {
   },
   methods: {
     toggle(category) {
-      let name = 'toggle'+category
-        console.log(name);
-   
    if (category == 'Stock') {
         this.toggleStock = true
         this.toggleOrders = false
