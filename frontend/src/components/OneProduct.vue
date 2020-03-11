@@ -110,16 +110,12 @@ export default {
         }));
 
         fetch(
-          'http://localhost:3000//control-panel/products/' 
+          'http://localhost:3000/control-panel/products/' 
           + this.$route.params.id, {
-          body: '{"price": 10, "quantity": 10}',
-          // body: JSON.stringify({price: 10, quantity: 10}),
-
-          //Try parseInt() 
-          //  body: JSON.stringify({                
-          //         price: parseInt(this.price),
-          //         quantity: parseInt(this.quantity)
-          //       }),
+           body: JSON.stringify({                
+                  price: parseFloat(this.price),
+                  quantity: parseInt(this.quantity)
+                }),
           
           headers: {
             'Content-Type': 'application/json'
