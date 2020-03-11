@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="categoryProducts">
     <h1>{{ title }} products</h1>
 
     <section class="display">
@@ -90,7 +90,8 @@ export default {
   padding: 1em;
   margin: 1em;
   border: 1px solid rgb(85, 23, 14);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  background-color: white;
 }
 
 .product div, p{
@@ -99,6 +100,10 @@ margin-bottom: 0.5em
 
 .display img {
   height: 80px;
+}
+
+#categoryProducts{
+ background-color: rgb(231, 231, 231)
 }
 
 h1{
