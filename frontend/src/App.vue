@@ -2,15 +2,17 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>|
-      <router-link to="/products/">Browse products</router-link>|
-      <router-link to="/about">About</router-link>
+      <!-- <router-link to="/products/">Browse products</router-link> | -->
+      <router-link to="/basket">My basket</router-link> |
+      <router-link to="/control-panel">Control Panel</router-link> 
+
     </div>
-    <router-link to="/basket">
-      <input type="button" value="My basket" />
-    </router-link>
-    <router-link to="/control-panel">Control Panel</router-link>
+    
     <router-view />
+    
+    
   </div>
+  
 </template>
 
 <style>
@@ -34,4 +36,11 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+/* #control-buttons{
+  display: grid;
+  grid-template-columns: 10% 10%;
+  grid-template-rows: auto;
+  justify-content: end;
+} */
 </style>

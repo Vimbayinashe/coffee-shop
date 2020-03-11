@@ -1,15 +1,15 @@
 <template>
   <div>
-    <input value="-" v-on:click="remove" type="button" />
+    <b-button type="is-danger" @click="remove"> - </b-button>
     <span>{{ quantity }}</span>
-    <input value="+" v-on:click="add" type="button" />
+    <b-button type="is-success" @click="add"> + </b-button>
   </div>
 </template>
 
 <script>
 export default {
   name: "quantityButton",
-
+//is-success
   data() {
     return {
       quantity: this.myQuantity

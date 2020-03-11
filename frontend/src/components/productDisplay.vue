@@ -3,7 +3,7 @@
     <h1>{{ title }} products</h1>
 
     <section class="display">
-      <div v-for="product in this.products" :key="product.id" :id="product.id">
+      <div v-for="product in this.products" :key="product.id" :id="product.id" class="product">
         <p>
           <img :src="'http://localhost:3000/images/' + product.image" alt="product image" />
         </p>
@@ -86,12 +86,22 @@ export default {
   display: grid;
   grid-template-columns: auto auto auto;
 }
-.display div {
+.product {
   padding: 1em;
   margin: 1em;
-  border: 1px solid black;
+  border: 1px solid rgb(85, 23, 14);
+  border-radius: 0.5em
 }
+
+.product div, p{
+margin-bottom: 0.5em
+}
+
 .display img {
   height: 80px;
+}
+
+h1{
+  font-size: 2em;
 }
 </style>
