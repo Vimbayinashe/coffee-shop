@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="cover">
+      <p> Passion for coffee </p>
+    </div>
+    <Products />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Products from '@/views/Products.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Products
   }
 }
 </script>
+
+<style scoped>
+.cover {
+  background: url(../assets/images/cover-photo.jpg); 
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position-y: 65%;
+  background-size: 100%;
+}
+ .cover p{
+   display: flex;
+   justify-content: center;
+ }
+</style>
