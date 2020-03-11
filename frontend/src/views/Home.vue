@@ -26,9 +26,18 @@ export default {
   background-repeat: no-repeat;
   background-position-y: 65%;
   background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
- .cover p{
-   display: flex;
-   justify-content: center;
- }
+
+.cover p{
+  align-self: flex-end;
+  margin-right: 7em;
+  font-size: 2em;
+  color:rgb(66, 32, 8);
+  /* background-color: rgb(169, 169, 169, 0.7); */
+  width: 20%;
+  border-radius: 0.5em;
+}
 </style>
