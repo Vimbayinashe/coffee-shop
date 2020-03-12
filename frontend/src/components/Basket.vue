@@ -131,7 +131,7 @@ export default {
 <style scoped>
 #basket{
   background-color: rgb(231, 231, 231);
-  height: 100vh;
+  height: 100%;
 }
 
 #item{
@@ -143,7 +143,7 @@ export default {
 }
 #myBasket {
   display: grid;
-  grid-template-columns: 20% 20% 20%;
+  grid-template-columns: auto auto auto;
   justify-content: center;
 }
 #myBasket div {
@@ -168,6 +168,7 @@ export default {
 
 h1{
   font-size: 2em;
+  font-weight: bold;
 }
 .checkout{
   position: absolute;

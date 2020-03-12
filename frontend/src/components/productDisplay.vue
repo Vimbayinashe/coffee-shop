@@ -110,6 +110,7 @@ margin-bottom: 0.5em
 
 h1{
   font-size: 2em;
+  font-weight: bold;
 }
 
 
