@@ -48,14 +48,23 @@ export default {
 </script>
 
 <style scoped>
+
 .link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1em;
 }
+
 .photo {
+  /* height: 160px;
+  width: 240px; */
   height: 130px;
-  width: auto;
+  width: 190px;
+}
+
+a {
+  width: 185px;
 }
 
 #categories {
@@ -73,6 +82,11 @@ export default {
     grid-template-columns: 20% 20%;
     grid-auto-rows: auto;
     grid-column-gap: 2em;
+  }
+
+  .photo{
+  height: 130px;
+  width: 190px;
   }
 }
 
