@@ -3,6 +3,7 @@
     <div class="cover">
       <p> Passion for coffee </p>
     </div>
+    <h1>Our products</h1>
     <Products />
   </div>
 </template>
@@ -20,15 +21,34 @@ export default {
 </script>
 
 <style scoped>
+
+.home{
+  background-color: rgb(231, 231, 231)
+}
+
+h1{
+  font-size: 1.5em;
+}
+
 .cover {
   background: url(../assets/images/cover-photo.jpg); 
   height: 400px;
   background-repeat: no-repeat;
   background-position-y: 65%;
   background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.5em;
 }
- .cover p{
-   display: flex;
-   justify-content: center;
- }
+
+.cover p{
+  align-self: flex-end;
+  margin-right: 7em;
+  font-size: 2em;
+  color:rgb(66, 32, 8);
+  /* background-color: rgb(169, 169, 169, 0.7); */
+  width: 20%;
+  border-radius: 0.5em;
+}
 </style>
