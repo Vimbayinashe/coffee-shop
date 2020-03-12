@@ -130,7 +130,8 @@ export default {
 
 <style scoped>
 #basket{
-  background-color: rgb(231, 231, 231)
+  background-color: rgb(231, 231, 231);
+  height: 100vh;
 }
 
 #item{

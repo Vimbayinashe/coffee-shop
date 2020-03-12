@@ -104,7 +104,8 @@ margin-bottom: 0.5em
 }
 
 #categoryProducts{
- background-color: rgb(231, 231, 231)
+ background-color: rgb(231, 231, 231);
+ height: 100%
 }
 
 h1{

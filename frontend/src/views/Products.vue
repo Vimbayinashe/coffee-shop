@@ -65,6 +65,7 @@ export default {
   grid-auto-rows: auto;
   grid-row-gap: 1em;
   justify-content: center;
+    padding-bottom: 1em;
 }
 
 @media screen and (max-width: 768px){
