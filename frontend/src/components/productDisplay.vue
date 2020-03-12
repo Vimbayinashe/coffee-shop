@@ -90,7 +90,8 @@ export default {
   padding: 1em;
   margin: 1em;
   border: 1px solid rgb(85, 23, 14);
-  border-radius: 0.5em
+  border-radius: 0.5em;
+  box-shadow: 1px 3px rgba(85, 23, 14, 0.5)
 }
 
 .product div, p{

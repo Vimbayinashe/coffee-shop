@@ -14,6 +14,8 @@
      </div>
     </section>
 
+    <div id="total" v-if="basket.length > 0">Total price: {{totalPrice}} kr</div>
+
     <div v-if="!buttonText">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required v-model="name">
@@ -66,6 +68,7 @@
 export default {
   data () {
     return {
+      totalPrice: null,
       name: null,
       address: null,
       basket: this.$store.state.myBasket,
@@ -73,6 +76,17 @@ export default {
       errorMessage: null
     }
   },
+
+  created() {
+    let prices= [];
+    let reducer = (accumulator, currentValue) => accumulator + currentValue;
+    this.basket.forEach(item => {
+        prices.push(parseFloat(item.price) * item.productQuantity)
+      })
+    this.totalPrice = prices.reduce(reducer)
+  console.log(this.totalPrice)
+  },
+
   methods: {
     submitOrder() {
    
@@ -127,6 +141,17 @@ export default {
 }
 #myBasket img {
   height: 110px;
+}
+
+#item{
+  border-radius: 0.5em;
+  box-shadow: 1px 3px rgba(85, 23, 14, 0.5)
+}
+
+#total {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: bold;
 }
 
 .checkout{
