@@ -14,7 +14,8 @@
      </div>
     </section>
 
-    <div id="total" v-if="basket.length > 0">Total price: {{totalPrice}} kr</div>
+    <div class="total" v-if="basket.length > 0">Total price: {{totalPrice}} kr</div>
+    <div class="total">{{ successMessage }}</div>
 
     <div v-if="!buttonText">
       <label for="name">Name:</label>
@@ -73,7 +74,8 @@ export default {
       address: null,
       basket: this.$store.state.myBasket,
       buttonText: true,
-      errorMessage: null
+      errorMessage: null,
+      successMessage:null
     }
   },
 
@@ -125,8 +127,10 @@ export default {
         this.errorMessage = null
         this.buttonText = true
         this.basket = 0
-        // this.$store.state.myBasket = 0
+        this.successMessage = "Thank-you for shopping at Coffee World"
         
+        setTimeout(()=>{ this.successMessage=null; }, 3000);
+
         }
     }
   },
@@ -168,7 +172,7 @@ export default {
   box-shadow: 1px 3px rgba(85, 23, 14, 0.5)
 }
 
-#total {
+.total {
   margin-top: 1em;
   margin-bottom: 1em;
   font-weight: bold;
