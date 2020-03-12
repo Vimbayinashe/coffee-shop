@@ -91,6 +91,7 @@ export default {
   margin: 1em;
   border: 1px solid rgb(85, 23, 14);
   border-radius: 0.5em;
+  box-shadow: 1px 3px rgba(63, 42, 39, 0.5);
   background-color: white;
 }
 
