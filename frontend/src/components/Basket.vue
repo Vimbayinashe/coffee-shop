@@ -80,11 +80,14 @@ export default {
   created() {
     let prices= [];
     let reducer = (accumulator, currentValue) => accumulator + currentValue;
-    this.basket.forEach(item => {
+    if (this.basket.length > 0){
+       this.basket.forEach(item => {
         prices.push(parseFloat(item.price) * item.productQuantity)
       })
     this.totalPrice = prices.reduce(reducer)
-  console.log(this.totalPrice)
+    console.log(this.totalPrice)
+    }
+   
   },
 
   methods: {
@@ -131,7 +134,8 @@ export default {
 <style scoped>
 #basket{
   background-color: rgb(231, 231, 231);
-  height: 100%;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 #item{
@@ -143,7 +147,7 @@ export default {
 }
 #myBasket {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 20% 20% 20%;
   justify-content: center;
 }
 #myBasket div {
@@ -171,7 +175,8 @@ h1{
   font-weight: bold;
 }
 .checkout{
-  position: absolute;
+  position: relative;
+  align-self: flex-end;
   font-size: 1em;
   padding: 0.8em;
   margin: 1em;
