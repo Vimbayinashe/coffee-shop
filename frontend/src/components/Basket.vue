@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>My Basket</h2>
+  <div id="basket">
+    <h1>My Basket</h1>
     <section id="myBasket">
       <div v-for="product in $store.state.myBasket" :key="product.id" id="item">
         <p>
@@ -129,6 +129,17 @@ export default {
 </script>
 
 <style scoped>
+#basket{
+  background-color: rgb(231, 231, 231)
+}
+
+#item{
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid rgb(85, 23, 14);
+  border-radius: 0.5em;
+  background-color: white;
+}
 #myBasket {
   display: grid;
   grid-template-columns: 20% 20% 20%;
@@ -154,6 +165,9 @@ export default {
   font-weight: bold;
 }
 
+h1{
+  font-size: 2em;
+}
 .checkout{
   position: absolute;
   font-size: 1em;
