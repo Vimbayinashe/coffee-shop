@@ -104,10 +104,23 @@ margin-bottom: 0.5em
 }
 
 #categoryProducts{
- background-color: rgb(231, 231, 231)
+ background-color: rgb(231, 231, 231);
+ height: 100%
 }
 
 h1{
   font-size: 2em;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 425px){
+  .display{
+    grid-template-columns: auto auto;
+  }
+
+  h1{
+    font-size: 1em;
+  }
 }
 </style>

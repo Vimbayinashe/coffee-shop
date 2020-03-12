@@ -28,6 +28,7 @@ export default {
 
 h1{
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 .cover {
@@ -50,5 +51,24 @@ h1{
   /* background-color: rgb(169, 169, 169, 0.7); */
   width: 20%;
   border-radius: 0.5em;
+}
+
+@media screen and (max-width: 768px){
+  .cover{
+    margin-bottom: 0.8em;
+    height: 200px;
+  }
+  
+}
+
+@media screen and (max-width: 425px){
+  .cover p{
+  font-size: 1.3em;
+  margin-right: 3em;
+  }
+
+  h1{
+    font-size: 1em;
+  }
 }
 </style>

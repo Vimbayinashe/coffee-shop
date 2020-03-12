@@ -56,16 +56,34 @@ export default {
 .photo {
   height: 130px;
   width: auto;
-  /* padding-bottom: 0.6em;
-  padding-top: 0.6em; */
 }
 
-section {
+#categories {
   margin-top: 0.7em;
   display: grid;
   grid-template-columns: 20% 20% 20%;
   grid-auto-rows: auto;
   grid-row-gap: 1em;
   justify-content: center;
+    padding-bottom: 1em;
+}
+
+@media screen and (max-width: 768px){
+  #categories{
+    grid-template-columns: 20% 20%;
+    grid-auto-rows: auto;
+    grid-column-gap: 2em;
+  }
+}
+
+@media screen and (max-width: 425px){
+  #categories{
+    display: block;
+  }
+
+  #categories .link{
+    margin-top: 0.5em;
+    margin-bottom: 0.8em;
+  }
 }
 </style>
