@@ -124,6 +124,9 @@ export default {
         });
         this.errorMessage = null
         this.buttonText = true
+        this.basket = 0
+        // this.$store.state.myBasket = 0
+        
         }
     }
   },
@@ -133,8 +136,9 @@ export default {
 
 <style scoped>
 #basket{
-  background-color: rgb(231, 231, 231);
-  height: 100vh;
+  /* background-color: rgb(231, 231, 231); */
+  /* height caused the input fields to be partially hidden */
+  /* height: 100vh; */
   overflow-y: auto;
 }
 

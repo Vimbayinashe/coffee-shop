@@ -12,7 +12,7 @@
     </div>
     <router-link to="/basket">
       <img id="basket2" src="./assets/images/basket.png" alt="">
-      
+
     </router-link> 
     <router-view />
 
@@ -87,13 +87,13 @@ export default {
   padding: 1em;
 }
 
-img {
+#basket-image, #basket2 {
   width: 1.5em;
   height: auto;
 }
 
 #basket-image{
-  color: #C4C4C4;
+  /* color: #C4C4C4; */
   position: absolute; 
   right: 1.5em; 
   top: 2em; 
@@ -110,19 +110,23 @@ img {
   font-size: 200%;
 }
 
+#personal-link, #credits {
+  font-size: 1.3em;
+}
+
 #credits:hover, #personal-link:hover{
   text-decoration-line: underline;
 }
 
 #personal-link:hover{
-  font-size: 110%;
+  color:goldenrod;
+  font-size: 1.4em;
 }
 
 #personal-link {
   color: rgb(233, 223, 223);
   padding: 1em 2em;
 }
-
 
 
 @media screen and (max-width: 425px){

@@ -64,7 +64,7 @@ export default {
 }
 
 a {
-  width: 235px;
+  width: 13vw;
 }
 
 #categories {
@@ -90,7 +90,7 @@ a {
   }
 
   a {
-    width: 185px;
+    width: 160px;
   }
 }
 
