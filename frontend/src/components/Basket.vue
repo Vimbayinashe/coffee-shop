@@ -18,30 +18,35 @@
     <div class="total">{{ successMessage }}</div>
 
     <div v-if="!buttonText">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required v-model="name">
-      <label for="address">Shipping Address:</label>
-      <textarea 
-        type="text" 
-        id="address" 
-        name="address" 
-        required 
-        rows="4" 
-        cols="30"
-        v-model="address"
-      >
-      </textarea>
+      <div class="customer-details">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required v-model="name">
+      </div>
+      <div class="customer-details">
+        <label for="address">Shipping Address:</label>
+        <textarea 
+          type="text" 
+          id="address" 
+          name="address" 
+          required 
+          rows="4" 
+          cols="30"
+          v-model="address"
+        >
+        </textarea>
+
+      </div>
       <div> {{errorMessage}} </div>
     <!-- input attributes: required ?  
         <textarea> could be upgraded to separate input for UX-->
 
 
-      <div>
-        Confirm Your Personal Details
+      <div id="confirm">
+        <div>Confirm Your Personal Details</div>
         <div>Name: {{ name }} </div>
         <div>
-          <div>Address:</div>
-          <div id="confirm-address"> {{ address }} </div>
+          <div>Address:{{ address }}</div>
+          <!-- <div id="confirm-address">  </div> -->
         </div>
       </div>
     </div>
@@ -139,6 +144,7 @@ export default {
 </script>
 
 <style scoped>
+
 #basket{
   /* background-color: rgb(231, 231, 231); */
   /* height caused the input fields to be partially hidden */
@@ -181,6 +187,7 @@ export default {
 h1{
   font-size: 2em;
   font-weight: bold;
+  margin-bottom: 1em;
 }
 .checkout{
   position: relative;
@@ -194,6 +201,36 @@ h1{
 #confirm-address {
   white-space: pre;
 }
+
+.customer-details {
+  margin-left: 25vw;
+  text-align: left;
+}
+
+#name {
+  position: absolute;
+  left: 36vw;
+  margin-left: 0.75em;
+}
+
+#address {
+  margin-left: 0.5em;
+  position: absolute;
+  left: 36vw;
+}
+
+
+#confirm {
+  margin: 11vh;
+}
+
+#confirm > div {
+  margin: 1em 30vw;
+  text-align: left;
+  font-weight: bold;
+}
+
+
 
 @media screen and (max-width: 425px){
   #myBasket{
