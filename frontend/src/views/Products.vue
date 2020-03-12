@@ -57,14 +57,14 @@ export default {
 }
 
 .photo {
-  /* height: 160px;
-  width: 240px; */
-  height: 130px;
-  width: 190px;
+  height: 160px;
+  width: 240px;
+  /* height: 130px;
+  width: 190px; */
 }
 
 a {
-  width: 185px;
+  width: 235px;
 }
 
 #categories {
@@ -87,6 +87,10 @@ a {
   .photo{
   height: 130px;
   width: 190px;
+  }
+
+  a {
+    width: 185px;
   }
 }
 
