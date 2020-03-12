@@ -111,4 +111,15 @@ margin-bottom: 0.5em
 h1{
   font-size: 2em;
 }
+
+
+@media screen and (max-width: 425px){
+  .display{
+    grid-template-columns: auto auto;
+  }
+
+  h1{
+    font-size: 1em;
+  }
+}
 </style>

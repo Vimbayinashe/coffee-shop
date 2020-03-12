@@ -181,4 +181,13 @@ h1{
   white-space: pre;
 }
 
+@media screen and (max-width: 425px){
+  #myBasket{
+    grid-template-columns: auto auto;
+  }
+
+  h1{
+    font-size: 1em;
+  }
+}
 </style>
