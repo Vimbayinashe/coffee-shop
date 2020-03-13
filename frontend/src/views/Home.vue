@@ -3,7 +3,7 @@
     <div class="cover">
       <p> Passion for coffee </p>
     </div>
-    <h1>Our products</h1>
+    <h1>Products</h1>
     <Products />
   </div>
 </template>
@@ -22,13 +22,16 @@ export default {
 
 <style scoped>
 
-.home{
+/* .home{
   background-color: rgb(231, 231, 231)
-}
+} */
 
 h1{
-  font-size: 1.5em;
-  font-weight: bold;
+  color: rgb(95, 58, 43);
+  font-size: 2em;
+  /* font-weight:bold; */
+  margin: 1.5em 1em 1em;
+  /* text-align: left; */
 }
 
 .cover {

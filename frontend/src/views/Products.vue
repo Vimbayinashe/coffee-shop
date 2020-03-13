@@ -8,7 +8,7 @@
       <p class="link">
         <img src="../assets/images/coffee.jpg" alt="coffee products" class="photo" />
         <b-button tag="router-link" to="/products/Coffee" type="is-primary" outlined 
-        >Coffee brew and beans</b-button>
+        >Coffee brew</b-button>
       </p>
       <p class="link">
         <img src="../assets/images/milk and cream.jpg" alt="milk and cream" class="photo" />
@@ -48,14 +48,23 @@ export default {
 </script>
 
 <style scoped>
+
 .link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1em;
 }
+
 .photo {
-  height: 130px;
-  width: auto;
+  height: 160px;
+  width: 240px;
+  /* height: 130px;
+  width: 190px; */
+}
+
+a {
+  width: 13vw;
 }
 
 #categories {
@@ -73,6 +82,15 @@ export default {
     grid-template-columns: 20% 20%;
     grid-auto-rows: auto;
     grid-column-gap: 2em;
+  }
+
+  .photo{
+  height: 130px;
+  width: 190px;
+  }
+
+  a {
+    width: 160px;
   }
 }
 

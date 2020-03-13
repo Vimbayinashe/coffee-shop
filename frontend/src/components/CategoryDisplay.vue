@@ -52,7 +52,9 @@ export default {
 /* Table Style */
 
 table {
-  border: 0.2em solid darkblue;
+  border: 0.18em solid rgb(85, 23, 14);
+  background-color: whitesmoke;
+  color: #000;
   margin: 3vw 10vw;
 }
 th, tr{
@@ -73,15 +75,28 @@ td {
 }
 
 th, td {
-  border-bottom: 0.1em solid darkblue;
+  border-bottom: 0.1em solid rgb(85, 23, 14);
 }
 
 tr:hover {
-  background-color: lightcyan;
+  background-color: rgba(85, 23, 14, 0.1);
 }
 
-/* td img {
-  height : 50px;
-  width : auto
-} */
+/*----style scrollbar- !does not work for firefox!----*/
+tbody::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+tbody::-webkit-scrollbar-button {
+  background:#888;
+}
+
+tbody::-webkit-scrollbar-track-piece {
+  background: #ccc;
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background: rgb(75, 74, 74);
+}
+
 </style>

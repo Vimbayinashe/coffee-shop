@@ -2,11 +2,11 @@
   <div>
 
     <div id="stock-nav">
-      <h3 class="h3-dark" @click="viewAll=!viewAll">
+      <h3 :class="{dark:viewAll}" @click="viewAll=!viewAll">
         <!--if class "h3-dark" works then :class="{ dark: viewAll }" -->
         Categories
       </h3>
-      <h3 @click="viewAll=!viewAll">
+      <h3 :class="{dark:!viewAll}" @click="viewAll=!viewAll">
         All Products
       </h3>
     </div>
@@ -15,6 +15,7 @@
         
       <div>
         <div 
+          class="category-name"
           @click ='toggle(alcoholOn)
           setProduct("alcoholic"); 
           alcoholOn = !alcoholOn'
@@ -28,7 +29,7 @@
       </div>
 
       <div>
-        <div @click ='toggle(coffeeOn); coffeeOn= true'>
+        <div class="category-name" @click ='toggle(coffeeOn); coffeeOn= true'>
           Coffee Brew and Beans
         </div>
         <div class="indiv-products" v-if="allCoffee" v-show='coffeeOn'>
@@ -38,7 +39,7 @@
       </div>
 
       <div>
-        <div @click ='toggle(milkOn); setProduct("sugar"); milkOn=true'>
+        <div class="category-name" @click ='toggle(milkOn); setProduct("sugar"); milkOn=true'>
           Sugar
         </div>
         <div class="indiv-products" v-show='milkOn'>
@@ -48,8 +49,8 @@
       </div>
 
       <div @click ='toggle(sugarOn); setProduct("spice"); sugarOn=true'>
-        <div>
-          Sugar and Spices
+        <div class="category-name">
+          Spices
         </div>
         <div class="indiv-products" v-show='sugarOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
@@ -59,7 +60,7 @@
 
       <div @click ='toggle(syrupOn) ; setProduct("syrup"); syrupOn = true'>
         <!-- find solution to compute syrupOn = true in 'toggle()' -->
-        <div>
+        <div class="category-name">
           Syrups
         </div>
         <div class="indiv-products" v-show='syrupOn'>
@@ -154,25 +155,61 @@ export default {
 
 <style scoped>
 
+*{
+  color: #000;
+}
+
 #stock-nav {
-  background: rgba(12, 105, 192, 0.322);
-  border-radius: 15px;
+  /* border: 2px solid rgb(85, 23, 14);
+  border-radius: 15px; */
+  color: #000;
+  cursor:pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 3em;
-  margin: 2em 20vw;
+  margin: 2em 9vw;
   width: 40em;
 }
 
-#stock-nav>h3-dark {
-  background-color: rgb(12, 120, 192);
+h3:hover{
+  text-decoration-line: underline;
+}
+
+.dark {
+  background-color: sandybrown;
+  border-radius: 15px;
+  /* color: brown; */
 }
 
 h3 {
-  /* Undo below later: */
-  /* font-size: 150%; */
+  font-size: 120%;
+  font-weight: bold;
+  height: 2.6em;
+  padding-top: 0.5em;
   width: 15em;
+}
+
+.close {
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-decoration-line: underline;
+  text-align: center;
+}
+
+#stock-item{
+  text-align: left;
+}
+
+.category-name{
+  font-size: 120%;
+  font-weight: bold;
+  margin: 0.5em 12vw;
+
+}
+
+.indiv-products{
+  margin-left: 0em;
 }
 
 </style>

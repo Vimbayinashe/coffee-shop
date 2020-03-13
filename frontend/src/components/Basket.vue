@@ -14,35 +14,41 @@
      </div>
     </section>
 
-    <div id="total" v-if="basket.length > 0">Total price: {{totalPrice}} kr</div>
+    <div class="total" v-if="basket.length > 0">Total price: {{totalPrice}} kr</div>
+    <div class="total">{{ successMessage }}</div>
 
     <div v-if="!buttonText">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required v-model="name">
-      <label for="address">Shipping Address:</label>
-      <textarea 
-        type="text" 
-        id="address" 
-        name="address" 
-        required 
-        rows="4" 
-        cols="30"
-        v-model="address"
-      >
-      </textarea>
-      <div> {{errorMessage}} </div>
+      <div class="customer-details">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required v-model="name">
+      </div>
+      <div class="customer-details">
+        <label for="address">Shipping Address:</label>
+        <textarea 
+          type="text" 
+          id="address" 
+          name="address" 
+          required 
+          rows="4" 
+          cols="30"
+          v-model="address"
+        >
+        </textarea>
+
+      </div>
     <!-- input attributes: required ?  
         <textarea> could be upgraded to separate input for UX-->
 
 
-      <div>
-        Confirm Your Personal Details
+      <div id="confirm">
+        <div>Confirm Your Personal Details</div>
         <div>Name: {{ name }} </div>
         <div>
-          <div>Address:</div>
-          <div id="confirm-address"> {{ address }} </div>
+          <div>Address: {{ address }}</div>
+          <!-- <div id="confirm-address">  </div> -->
         </div>
       </div>
+        <div id="error-message"> {{errorMessage}} </div>
     </div>
     
     <input 
@@ -73,7 +79,8 @@ export default {
       address: null,
       basket: this.$store.state.myBasket,
       buttonText: true,
-      errorMessage: null
+      errorMessage: null,
+      successMessage:null
     }
   },
 
@@ -124,6 +131,11 @@ export default {
         });
         this.errorMessage = null
         this.buttonText = true
+        this.basket = 0
+        this.successMessage = "Thank-you for shopping at Coffee World!!"
+        
+        setTimeout(()=>{ this.successMessage=null; }, 3000);
+
         }
     }
   },
@@ -132,11 +144,13 @@ export default {
 </script>
 
 <style scoped>
-#basket{
+
+/* #basket{
   background-color: rgb(231, 231, 231);
-  height: 100vh;
-  overflow-y: auto;
-}
+  /* height caused the input fields to be partially hidden */
+  /* height: 100vh; */
+  /* overflow-y: auto;
+} */
 
 #item{
   padding: 1em;
@@ -164,7 +178,7 @@ export default {
   box-shadow: 1px 3px rgba(85, 23, 14, 0.5)
 }
 
-#total {
+.total {
   margin-top: 1em;
   margin-bottom: 1em;
   font-weight: bold;
@@ -173,6 +187,7 @@ export default {
 h1{
   font-size: 2em;
   font-weight: bold;
+  margin-bottom: 1em;
 }
 .checkout{
   position: relative;
@@ -186,6 +201,45 @@ h1{
 #confirm-address {
   white-space: pre;
 }
+
+.customer-details {
+  margin: 1em 0 1em 25vw;
+  /* margin-left: 25vw; */
+  text-align: left;
+}
+
+ #name {
+  position: relative;
+  left: 6em;
+  width: 20em;
+}
+
+label {
+  margin-right: o.5em;
+  /* width: 8em; */
+}
+/*
+#address {
+  margin-left: 0.5em;
+  position: absolute;
+  left: 36vw;
+} */
+
+#error-message{
+ color: red;
+}
+
+#confirm {
+  margin: 1em;
+}
+
+#confirm > div {
+  margin: 1em 30vw;
+  text-align: left;
+  font-weight: bold;
+}
+
+
 
 @media screen and (max-width: 425px){
   #myBasket{
