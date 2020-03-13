@@ -63,3 +63,40 @@ export default {
   name: "Orders"
 };
 </script>
+
+<style  scoped>
+
+/* Table Style */
+
+table {
+  border: 0.18em solid rgb(85, 23, 14);
+  background-color: whitesmoke;
+  color: #000;
+  margin: 3vw 10vw;
+}
+th, tr{
+  margin: 2em;
+  padding: 1em;
+}
+
+tr {
+  margin: 1em;
+  text-align: left;
+  padding: 1em 0.5em;
+}
+
+td {
+  /* margin: 1em; */
+  text-align: left;
+  padding: 1em 0.5em;
+}
+
+th, td {
+  border-bottom: 0.1em solid rgb(85, 23, 14);
+}
+
+tr:hover {
+  background-color: rgba(85, 23, 14, 0.1);
+}
+
+</style>

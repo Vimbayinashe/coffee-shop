@@ -2,11 +2,11 @@
   <div>
 
     <div id="stock-nav">
-      <h3 class="h3-dark" @click="viewAll=!viewAll">
+      <h3 :class="{dark:viewAll}" @click="viewAll=!viewAll">
         <!--if class "h3-dark" works then :class="{ dark: viewAll }" -->
         Categories
       </h3>
-      <h3 @click="viewAll=!viewAll">
+      <h3 :class="{dark:!viewAll}" @click="viewAll=!viewAll">
         All Products
       </h3>
     </div>
@@ -154,9 +154,14 @@ export default {
 
 <style scoped>
 
+*{
+  color: #000;
+}
+
 #stock-nav {
-  background: rgba(12, 105, 192, 0.322);
+  border: 2px solid rgb(85, 23, 14);
   border-radius: 15px;
+  color: #000;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -165,14 +170,23 @@ export default {
   width: 40em;
 }
 
-#stock-nav>h3-dark {
-  background-color: rgb(12, 120, 192);
+h3:hover{
+  text-decoration-line: underline;
+}
+
+.dark {
+  font-size: 120%;
+  font-weight: bold;
 }
 
 h3 {
-  /* Undo below later: */
-  /* font-size: 150%; */
   width: 15em;
+}
+
+.close {
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-decoration-line: underline;
 }
 
 </style>

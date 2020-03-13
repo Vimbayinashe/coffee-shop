@@ -27,7 +27,7 @@ export default {
   },
   data () {
     return {
-      toggleStock: false,
+      toggleStock: true,
       toggleOrders: false
     }
   },
@@ -78,18 +78,19 @@ div{
   /* margin-bottom: 30vh; */
 }
 
-#stock {
-  /* box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25); */
+#stock, #orders {
   height: 75vh;
   overflow-y: scroll;
   position: absolute;
   left: 17vw;
   top: 25vh;
 }
-#orders {
+/* #orders {
+  height: 75vh;
+  overflow-y: scroll;
   position: absolute;
-  left: 27vw;
-  top: 29vh;
-}
+  left: 17vw;
+  top: 25vh;
+} */
 
 </style>
