@@ -29,7 +29,7 @@ export default {
 h1{
   color: rgb(95, 58, 43);
   font-size: 2em;
-  font-weight:bold;
+  /* font-weight:bold; */
   margin: 1.5em 1em 1em;
   /* text-align: left; */
 }

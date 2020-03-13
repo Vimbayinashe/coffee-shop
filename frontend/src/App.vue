@@ -6,9 +6,9 @@
     <main>
       <div id="nav">
         <router-link id="coffee" to="/">Coffee World</router-link>
-        <router-link to="/basket">
+        <!-- <router-link to="/basket">
           <img id="basket-image" src="./assets/images/basket3.png" alt="">
-        </router-link> 
+        </router-link>  -->
       </div>
       <router-link to="/basket">
         <img id="basket2" src="./assets/images/basket.png" alt="">
@@ -20,7 +20,7 @@
     <div id="footer">
       <div id="control-panel">
         <!-- <p>Here you can control previous orders and view product values in stock: </p> -->
-        <router-link id="personal-link" to="/control-panel">Personal</router-link>
+        <router-link id="personal-link" to="/control-panel">Staff</router-link>
       </div>
       <div @click="toggle=!toggle">
         <p  id="credits">Credits</p>
@@ -70,6 +70,9 @@ main{
   flex-grow: 1;
 }
 
+a, button {
+  cursor: pointer;
+}
 /* #nav a {
   font-weight: bold;
   color: #2c3e50;

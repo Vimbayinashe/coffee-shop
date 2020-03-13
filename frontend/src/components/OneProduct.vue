@@ -34,29 +34,30 @@
     <button id="edit-button" @click="toggle=true">Edit</button>
 
     <div v-if="toggle">
-      <div id="new-details">
-        <label for="price">Price:</label>
-        <input type="number" name="price" step="0.01" v-model="price">
-        <p><i>e.g. 2.99</i></p>
-        <label for="quantity">Quantity:</label>
-        <input type="number" name="quantity" step="1" v-model="quantity">
-      </div>
+      <div id="all-details">
+        <div id="new-details">
+          <label for="price">Price:</label>
+          <input type="number" name="price" step="0.01" v-model="price">
+          <p><i>e.g. 2.99</i></p>
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" step="1" v-model="quantity">
+        </div>
 
-      <!-- <div id="all-details"> -->
-        <p>Confirm product details</p>
-        <div id="confirm-details">
-          <div id="old-details" class="details">
-            <p>Old Details:</p> 
-            <div>Price: {{ products[index].price }} </div>
-            <div>Quantity {{ products[index].quantity }} </div>
-          </div>
-          <div id="confirm-new" class="details">
-            <p>New Details:</p>
-            <div>Price: {{price}} </div>
-            <div>Quantity: {{quantity}} </div>
+        <!-- <div id="all-details"> -->
+          <p>Confirm product details</p>
+          <div id="confirm-details">
+            <div id="old-details" class="details">
+              <p>Old Details:</p> 
+              <div>Price: {{ products[index].price }} </div>
+              <div>Quantity {{ products[index].quantity }} </div>
+            </div>
+            <div id="confirm-new" class="details">
+              <p>New Details:</p>
+              <div>Price: {{price}} </div>
+              <div>Quantity: {{quantity}} </div>
+            </div>
           </div>
         </div>
-      <!-- </div> -->
 
       <p class="message"> {{ errorMessage }} </p>
       <button @click="toggle = false">Cancel</button>
@@ -170,6 +171,7 @@ h3{
 .details {
   color: #000;
   margin: 1em;
+  text-align: left;
 }
 
 #new-details {
@@ -178,10 +180,6 @@ h3{
   margin: 1em 20vw;
   height: 1.2em;
 }
-
-/* #confirm-new {
-  background-color: lightcyan;
-} */
 
 p {
   color: black;
@@ -194,6 +192,7 @@ p > i {
 }
 
 .message {
+  background-color: transparent;
   color: red;
   margin: 2em;
 }
@@ -224,11 +223,16 @@ label {
   margin-right: 0.5em;
 }
 
+#all-details{
+  margin-left: 15vw;
+}
+
 /* Styling Table */
 
 table {
+  background-color: white;
   border: 0.18em solid rgb(85, 23, 14);
-  margin: 3vw 25vw;
+  margin: 3vw 35vw;
 }
 th, tr{
   margin: 2em;
@@ -249,10 +253,6 @@ td {
 
 th, td {
   border-bottom: 0.1em solid rgb(85, 23, 14);
-}
-
-tbody>tr:hover {
-  background-color: rgba(85, 23, 14, 0.4);
 }
 
 </style>

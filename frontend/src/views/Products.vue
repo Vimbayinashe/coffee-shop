@@ -8,7 +8,7 @@
       <p class="link">
         <img src="../assets/images/coffee.jpg" alt="coffee products" class="photo" />
         <b-button tag="router-link" to="/products/Coffee" type="is-primary" outlined 
-        >Coffee brew and beans</b-button>
+        >Coffee brew</b-button>
       </p>
       <p class="link">
         <img src="../assets/images/milk and cream.jpg" alt="milk and cream" class="photo" />

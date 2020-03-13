@@ -58,6 +58,7 @@ h3 {
   background-color: rgba(95, 58, 43, 0.4);
   border-radius: 12px;
   color:  rgb(95, 58, 43);
+  cursor: pointer;
   font-size: 1.4em;
   font-weight: bold;
   height: 2.5em;

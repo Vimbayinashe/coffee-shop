@@ -15,6 +15,7 @@
         
       <div>
         <div 
+          class="category-name"
           @click ='toggle(alcoholOn)
           setProduct("alcoholic"); 
           alcoholOn = !alcoholOn'
@@ -28,7 +29,7 @@
       </div>
 
       <div>
-        <div @click ='toggle(coffeeOn); coffeeOn= true'>
+        <div class="category-name" @click ='toggle(coffeeOn); coffeeOn= true'>
           Coffee Brew and Beans
         </div>
         <div class="indiv-products" v-if="allCoffee" v-show='coffeeOn'>
@@ -38,7 +39,7 @@
       </div>
 
       <div>
-        <div @click ='toggle(milkOn); setProduct("sugar"); milkOn=true'>
+        <div class="category-name" @click ='toggle(milkOn); setProduct("sugar"); milkOn=true'>
           Sugar
         </div>
         <div class="indiv-products" v-show='milkOn'>
@@ -48,8 +49,8 @@
       </div>
 
       <div @click ='toggle(sugarOn); setProduct("spice"); sugarOn=true'>
-        <div>
-          Sugar and Spices
+        <div class="category-name">
+          Spices
         </div>
         <div class="indiv-products" v-show='sugarOn'>
           <CategoryDisplay :products="viewProducts"></CategoryDisplay>
@@ -59,7 +60,7 @@
 
       <div @click ='toggle(syrupOn) ; setProduct("syrup"); syrupOn = true'>
         <!-- find solution to compute syrupOn = true in 'toggle()' -->
-        <div>
+        <div class="category-name">
           Syrups
         </div>
         <div class="indiv-products" v-show='syrupOn'>
@@ -159,9 +160,10 @@ export default {
 }
 
 #stock-nav {
-  border: 2px solid rgb(85, 23, 14);
-  border-radius: 15px;
+  /* border: 2px solid rgb(85, 23, 14);
+  border-radius: 15px; */
   color: #000;
+  cursor:pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -175,11 +177,16 @@ h3:hover{
 }
 
 .dark {
-  font-size: 120%;
-  font-weight: bold;
+  background-color: sandybrown;
+  border-radius: 15px;
+  /* color: brown; */
 }
 
 h3 {
+  font-size: 120%;
+  font-weight: bold;
+  height: 2.6em;
+  padding-top: 0.5em;
   width: 15em;
 }
 
@@ -187,6 +194,22 @@ h3 {
   margin-bottom: 1em;
   font-weight: bold;
   text-decoration-line: underline;
+  text-align: center;
+}
+
+#stock-item{
+  text-align: left;
+}
+
+.category-name{
+  font-size: 120%;
+  font-weight: bold;
+  margin: 0.5em 12vw;
+
+}
+
+.indiv-products{
+  margin-left: 0em;
 }
 
 </style>

@@ -44,7 +44,7 @@
         <div>Confirm Your Personal Details</div>
         <div>Name: {{ name }} </div>
         <div>
-          <div>Address:{{ address }}</div>
+          <div>Address: {{ address }}</div>
           <!-- <div id="confirm-address">  </div> -->
         </div>
       </div>
@@ -132,7 +132,7 @@ export default {
         this.errorMessage = null
         this.buttonText = true
         this.basket = 0
-        this.successMessage = "Thank-you for shopping at Coffee World"
+        this.successMessage = "Thank-you for shopping at Coffee World!!"
         
         setTimeout(()=>{ this.successMessage=null; }, 3000);
 
@@ -210,11 +210,13 @@ h1{
 
  #name {
   position: relative;
-  left: 8vw;
+  left: 6em;
+  width: 20em;
 }
 
 label {
   margin-right: o.5em;
+  /* width: 8em; */
 }
 /*
 #address {
