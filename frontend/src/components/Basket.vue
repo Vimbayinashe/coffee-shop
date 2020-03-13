@@ -36,16 +36,12 @@
         </textarea>
 
       </div>
-    <!-- input attributes: required ?  
-        <textarea> could be upgraded to separate input for UX-->
-
 
       <div id="confirm">
         <div>Confirm Your Personal Details</div>
         <div>Name: {{ name }} </div>
         <div>
           <div>Address: {{ address }}</div>
-          <!-- <div id="confirm-address">  </div> -->
         </div>
       </div>
         <div id="error-message"> {{errorMessage}} </div>
@@ -145,13 +141,6 @@ export default {
 
 <style scoped>
 
-/* #basket{
-  background-color: rgb(231, 231, 231);
-  /* height caused the input fields to be partially hidden */
-  /* height: 100vh; */
-  /* overflow-y: auto;
-} */
-
 #item{
   padding: 1em;
   margin: 1em;
@@ -216,14 +205,7 @@ h1{
 
 label {
   margin-right: o.5em;
-  /* width: 8em; */
 }
-/*
-#address {
-  margin-left: 0.5em;
-  position: absolute;
-  left: 36vw;
-} */
 
 #error-message{
  color: red;

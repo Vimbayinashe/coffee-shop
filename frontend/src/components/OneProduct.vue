@@ -111,12 +111,6 @@ document.title = this.products[this.index].name + " " + '|| Coffee World'
         this.errorMessage = "Please enter valid changes to price or quantity"
 
       } else {
-        /** ACTUAL DATA SET */
-        console.log(JSON.stringify({
-          price: parseInt(this.price),
-          quantity: parseInt(this.quantity)
-        }));
-
         fetch(
           'http://localhost:3000/control-panel/products/' 
           + this.$route.params.id, {
@@ -169,7 +163,6 @@ h3{
 #confirm-details {
   display: flex;
   flex-direction: row;
-  /* font-size: 120%; */
   margin: 1em 20vw;
 }
 

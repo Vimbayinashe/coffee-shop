@@ -1,6 +1,5 @@
 <template>
   <div v-if="orders && products">
-  <!-- <div v-if="orders"> -->
        <table>
             <thead>
               <tr>
@@ -9,7 +8,6 @@
                 <th>Product</th>
                 <th>Size</th>
                 <th>Quantity</th>
-                <!-- <th>Price</th> -->
                 <th>Status</th>
               </tr>
             </thead>
@@ -21,9 +19,7 @@
               </td>
               <td>{{ order.address }}</td>
               <td>{{ products[order.productId].name }}</td>
-              <!-- <td> {{products.length}}</td> -->
               <td>{{ products[order.productId].weight }} {{ products[order.productId].unit }} </td>
-              <!-- <td>{{ product.price }}</td> -->
               <td>{{ order.quantity }}</td>
               <td>
                 <div v-if="order.shipped">pending</div>
@@ -36,8 +32,6 @@
 </template>
 
 <script>
-
-// import Stock from '@/components/Stock.vue'
 
 export default {
   created() {

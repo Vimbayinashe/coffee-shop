@@ -5,13 +5,6 @@
     <h3 @click="toggle('Orders')">Orders</h3>
     <Stock id="stock" v-if="toggleStock"></Stock>
     <Orders id="orders" v-if="toggleOrders"></Orders>
-    <!-- Doubtful: it <a> adds /stock to the address  -->
-    <!-- <div>Menu</div>
-    <div id="order-menu">
-      <p>Control Panel</p>
-      <p><a href="#stock" > Stock </a></p>
-      <p><a href="#orders" > Orders </a></p>
-    </div> -->
   </div>
 </template>
 
@@ -69,14 +62,12 @@ h3 {
 }
 
 h3:hover {
-  /* font-size: 1.5em; */
   background-color: rgba(95, 58, 43, 0.849);
   color:  rgb(233, 223, 223);
 }
 
 div{
   height: 95vh;
-  /* margin-bottom: 30vh; */
 }
 
 #stock, #orders {
