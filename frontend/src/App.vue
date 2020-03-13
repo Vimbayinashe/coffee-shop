@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   background-color: #E3D4CE;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -81,10 +82,12 @@ export default {
   grid-template-columns: 25% 65%;
   grid-column-gap: 2em;
   justify-content: center;
-  /* position: absolute; 
-  right: 0px; 
-  bottom: 0px;  */
+  /* position: relative; 
+  right: 0; 
+  top: 100em; */
+  /* bottom: 20em; */
   padding: 1em;
+  width: 100vw;
 }
 
 #basket-image, #basket2 {

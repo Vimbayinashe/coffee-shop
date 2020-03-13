@@ -161,7 +161,7 @@ export default {
   flex-direction: row;
   align-items: center;
   height: 3em;
-  margin: 2em 20vw;
+  margin: 2em 9vw;
   width: 40em;
 }
 
