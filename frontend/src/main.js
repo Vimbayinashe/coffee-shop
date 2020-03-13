@@ -11,6 +11,11 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  watch: {
+    '$route'(to) {
+      document.title = to.meta.title 
+    }
+  },
   store,
   render: h => h(App)
 }).$mount('#app')

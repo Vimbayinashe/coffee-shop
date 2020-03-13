@@ -86,6 +86,11 @@ export default {
         this.setIndex();
       });
   },
+
+  updated() {
+document.title = this.products[this.index].name + " " + '|| Coffee World'
+  },
+
   data () {
     return {
       errorMessage: null,
