@@ -13,6 +13,9 @@
 import Products from '@/views/Products.vue'
 
 export default {
+  created (){
+    document.title = 'Coffee World'
+  },
   name: 'Home',
   components: {
     Products

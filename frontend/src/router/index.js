@@ -11,24 +11,36 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    meta: {
+      title: 'Coffee World'
+      },
     component: Home
   },
   
   {
     path: '/control-panel/',
     name: 'ControlPanel',
+    meta: {
+      title: 'Control Panel'
+      },
     component: ControlPanel
   },
   
   {
     path:'/basket',
     name:'Basket',
+    meta: {
+      title: 'My basket'
+      },
     component: Basket
   },
   
   {
     path: '/control-panel/products/:id',
     name:'OneProduct',
+    meta: {
+      title: 'Product'
+      },
     component: OneProduct
   },
 

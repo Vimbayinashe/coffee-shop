@@ -27,11 +27,14 @@ export default {
     fetch(`http://localhost:3000/products/${this.$route.params.category}`)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
+        console.log(result);
         this.products = result;
       });
   },
 
+  updated() {
+    document.title = this.$route.params.category + " " + "Products" + " " + '|| Coffee World'
+  },
   data() {
     return {
       title: this.$route.params.category,
@@ -40,9 +43,7 @@ export default {
   },
 
   methods: {
-  
     addOne(target, quantity) {
-
       let targetProduct = this.products.filter(
         product => product.id === target
       );
@@ -57,7 +58,6 @@ export default {
     },
 
     removeOne(target, quantity) {
-      
       let targetProduct = this.products.filter(
         product => product.id === target
       );
@@ -65,11 +65,11 @@ export default {
       let present = this.$store.state.myBasket.find(
         item => item.name === targetProduct[0].name
       );
-      if (present !== undefined && quantity==0) {
+      if (present !== undefined && quantity == 0) {
         this.$store.state.myBasket.splice(
-        this.$store.state.myBasket.indexOf(targetProduct[0]),
-        1
-      );
+          this.$store.state.myBasket.indexOf(targetProduct[0]),
+          1
+        );
       }
       console.log(this.$store.state.myBasket);
     }
@@ -95,31 +95,31 @@ export default {
   background-color: white;
 }
 
-.product div, p{
-margin-bottom: 0.5em
+.product div,
+p {
+  margin-bottom: 0.5em;
 }
 
 .display img {
   height: 80px;
 }
 
-#categoryProducts{
- /* background-color: rgb(231, 231, 231); */
- height: 100%
+#categoryProducts {
+  /* background-color: rgb(231, 231, 231); */
+  height: 100%;
 }
 
-h1{
+h1 {
   font-size: 2em;
   font-weight: bold;
 }
 
-
-@media screen and (max-width: 425px){
-  .display{
+@media screen and (max-width: 425px) {
+  .display {
     grid-template-columns: auto auto;
   }
 
-  h1{
+  h1 {
     font-size: 1em;
   }
 }
