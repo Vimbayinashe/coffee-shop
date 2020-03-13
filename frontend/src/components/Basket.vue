@@ -47,8 +47,8 @@
           <div>Address:{{ address }}</div>
           <!-- <div id="confirm-address">  </div> -->
         </div>
-        <div id="error-message"> {{errorMessage}} </div>
       </div>
+        <div id="error-message"> {{errorMessage}} </div>
     </div>
     
     <input 
@@ -145,12 +145,12 @@ export default {
 
 <style scoped>
 
-#basket{
-  /* background-color: rgb(231, 231, 231); */
+/* #basket{
+  background-color: rgb(231, 231, 231);
   /* height caused the input fields to be partially hidden */
   /* height: 100vh; */
-  overflow-y: auto;
-}
+  /* overflow-y: auto;
+} */
 
 #item{
   padding: 1em;
@@ -203,31 +203,32 @@ h1{
 }
 
 .customer-details {
-  margin-left: 25vw;
+  margin: 1em 0 1em 25vw;
+  /* margin-left: 25vw; */
   text-align: left;
 }
 
-#name {
-  position: absolute;
-  left: 36vw;
-  margin-left: 0.75em;
+ #name {
+  position: relative;
+  left: 8vw;
 }
 
+label {
+  margin-right: o.5em;
+}
+/*
 #address {
   margin-left: 0.5em;
   position: absolute;
   left: 36vw;
-}
+} */
 
 #error-message{
-  margin-left: 0.5em;
-  position: relative;
-  top: 25vh;
-  /* left: 36vw; */
+ color: red;
 }
 
 #confirm {
-  margin: 11vh;
+  margin: 1em;
 }
 
 #confirm > div {
