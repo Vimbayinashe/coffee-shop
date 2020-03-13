@@ -105,7 +105,6 @@ p {
 }
 
 #categoryProducts {
-  /* background-color: rgb(231, 231, 231); */
   height: 100%;
 }
 

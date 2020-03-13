@@ -59,8 +59,6 @@ export default {
 .photo {
   height: 160px;
   width: 240px;
-  /* height: 130px;
-  width: 190px; */
 }
 
 a {

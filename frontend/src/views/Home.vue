@@ -25,16 +25,10 @@ export default {
 
 <style scoped>
 
-/* .home{
-  background-color: rgb(231, 231, 231)
-} */
-
 h1{
   color: rgb(95, 58, 43);
   font-size: 2em;
-  /* font-weight:bold; */
   margin: 1.5em 1em 1em;
-  /* text-align: left; */
 }
 
 .cover {

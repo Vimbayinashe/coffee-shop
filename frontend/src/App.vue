@@ -6,9 +6,6 @@
     <main>
       <div id="nav">
         <router-link id="coffee" to="/">Coffee World</router-link>
-        <!-- <router-link to="/basket">
-          <img id="basket-image" src="./assets/images/basket3.png" alt="">
-        </router-link>  -->
       </div>
       <router-link to="/basket">
         <img id="basket2" src="./assets/images/basket.png" alt="">
@@ -19,7 +16,6 @@
 
     <div id="footer">
       <div id="control-panel">
-        <!-- <p>Here you can control previous orders and view product values in stock: </p> -->
         <router-link id="personal-link" to="/control-panel">Staff</router-link>
       </div>
       <div @click="toggle=!toggle">
@@ -73,14 +69,6 @@ main{
 a, button {
   cursor: pointer;
 }
-/* #nav a {
-  font-weight: bold;
-  color: #2c3e50;
-} */
-
-/* #nav a.router-link-exact-active {
-  color: #42b983;
-} */
 
 #footer{
   background-color: rgb(95, 58, 43);
@@ -92,10 +80,6 @@ a, button {
   grid-template-columns: 25% 65%;
   grid-column-gap: 2em;
   justify-content: center;
-  /* position: relative; 
-  right: 0; 
-  top: 100em; */
-  /* bottom: 20em; */
   padding: 1em;
   width: 100vw;
 }
@@ -119,7 +103,6 @@ a, button {
 }
 #coffee {
   color: rgb(233, 223, 223);
-  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-size: 200%;
 }
 

@@ -179,7 +179,6 @@ h3:hover{
 .dark {
   background-color: sandybrown;
   border-radius: 15px;
-  /* color: brown; */
 }
 
 h3 {
