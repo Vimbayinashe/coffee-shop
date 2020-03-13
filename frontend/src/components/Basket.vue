@@ -36,7 +36,6 @@
         </textarea>
 
       </div>
-      <div> {{errorMessage}} </div>
     <!-- input attributes: required ?  
         <textarea> could be upgraded to separate input for UX-->
 
@@ -48,6 +47,7 @@
           <div>Address:{{ address }}</div>
           <!-- <div id="confirm-address">  </div> -->
         </div>
+        <div id="error-message"> {{errorMessage}} </div>
       </div>
     </div>
     
@@ -219,6 +219,12 @@ h1{
   left: 36vw;
 }
 
+#error-message{
+  margin-left: 0.5em;
+  position: relative;
+  top: 25vh;
+  /* left: 36vw; */
+}
 
 #confirm {
   margin: 11vh;

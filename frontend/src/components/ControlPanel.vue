@@ -85,12 +85,22 @@ div{
   left: 17vw;
   top: 25vh;
 }
-/* #orders {
-  height: 75vh;
-  overflow-y: scroll;
-  position: absolute;
-  left: 17vw;
-  top: 25vh;
-} */
+
+/*----style scrollbar- !does not work for firefox!----*/
+#stock::-webkit-scrollbar, #orders::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+#stock::-webkit-scrollbar-button, #orders::-webkit-scrollbar-button{
+  background:#888;
+}
+
+#stock::-webkit-scrollbar-track-piece, #orders::-webkit-scrollbar-track-piece {
+  background: #ccc;
+}
+
+#stock::-webkit-scrollbar-thumb, #orders::-webkit-scrollbar-thumb {
+  background: rgb(95, 58, 43);
+}
 
 </style>

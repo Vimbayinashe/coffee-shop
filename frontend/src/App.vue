@@ -3,18 +3,19 @@
 
     <!--  Creators: Vimbayinashe Mandaza and Evi Ioannou
           Course: Design med JavaScript -->
-
-    <div id="nav">
-      <router-link id="coffee" to="/">Coffee World</router-link>
+    <main>
+      <div id="nav">
+        <router-link id="coffee" to="/">Coffee World</router-link>
+        <router-link to="/basket">
+          <img id="basket-image" src="./assets/images/basket3.png" alt="">
+        </router-link> 
+      </div>
       <router-link to="/basket">
-        <img id="basket-image" src="./assets/images/basket3.png" alt="">
-      </router-link> 
-    </div>
-    <router-link to="/basket">
-      <img id="basket2" src="./assets/images/basket.png" alt="">
+        <img id="basket2" src="./assets/images/basket.png" alt="">
 
-    </router-link> 
-    <router-view />
+      </router-link> 
+      <router-view />
+    </main>
 
     <div id="footer">
       <div id="control-panel">
@@ -54,13 +55,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   /* color: #2c3e50; */
-  height: 100%
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #nav {
   background-color: rgb(95, 58, 43);
   padding: 25px;
   margin-bottom: 2.5em;
+}
+
+main{
+  flex-grow: 1;
 }
 
 /* #nav a {
